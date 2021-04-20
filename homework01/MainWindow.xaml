@@ -11,6 +11,6 @@
         <TextBox x:Name="uxName"></TextBox>
         <TextBlock>Enter Password:</TextBlock>
         <TextBox x:Name="uxPassword"></TextBox>
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click">Submit</Button>
+        <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="False">Submit</Button>
     </StackPanel>
 </Window>
