@@ -24,6 +24,7 @@ namespace HelloWorld
         {
             InitializeComponent();
             //uxSubmit.IsEnabled = false;
+            //WindowState = WindowState.Maximized;
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
