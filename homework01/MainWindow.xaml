@@ -6,11 +6,32 @@
         xmlns:local="clr-namespace:HelloWorld"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <StackPanel>
-        <TextBlock>Enter Name:</TextBlock>
-        <TextBox x:Name="uxName"></TextBox>
-        <TextBlock>Enter Password:</TextBlock>
-        <TextBox x:Name="uxPassword"></TextBox>
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="False">Submit</Button>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="150" />
+        </Grid.ColumnDefinitions>
+        
+        <Canvas Grid.ColumnSpan="2" Margin="0,0,0,45">
+            <Label Content="Enter Name:" Height="26" Width="93"/>
+            <TextBox x:Name="uxName" Height="26" Canvas.Left="93" Width="150"/>
+        </Canvas>
+        <Canvas Grid.ColumnSpan="2" Margin="0,0,0,235" Grid.RowSpan="2" Grid.Row="1">
+            <Label Content="Enter Password:" Height="26" Width="93"/>
+            <TextBox x:Name="uxPassword" Height="26" Canvas.Left="93" Width="150" Margin="0,0,0,45"/>
+            <Button x:Name="uxSubmit" Click="uxSubmit_Click" Background="{x:Null}" Cursor="Hand" Height="30" Canvas.Left="93" Canvas.Top="45" Width="150">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/images/baseline_lock_open_black_24dp.png" Margin="0,0,5,0" Width="25" />
+                    <TextBlock Text="Submit" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+        </Canvas>
+    </Grid>
 </Window>
