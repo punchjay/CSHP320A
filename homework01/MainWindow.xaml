@@ -21,11 +21,11 @@
         
         <Canvas Grid.ColumnSpan="2" Margin="25,25,0,35">
             <Label Content="Enter Name:" Height="26" Width="93"/>
-            <TextBox x:Name="uxName" Height="25" Canvas.Left="93" Width="150"/>
+            <TextBox x:Name="uxName" Height="25" Canvas.Left="93" Width="150" TextChanged="uxName_TextChanged"/>
         </Canvas>
         <Canvas Grid.ColumnSpan="2" Margin="25,0,0,235" Grid.RowSpan="2" Grid.Row="1">
             <Label Content="Enter Password:" Height="26" Width="93"/>
-            <TextBox x:Name="uxPassword" Height="26" Canvas.Left="93" Width="150" Margin="0,0,0,45"/>
+            <TextBox x:Name="uxPassword" Height="26" Canvas.Left="93" Width="150" Margin="0,0,0,45" TextChanged="uxPassword_TextChange"/>
             <Button x:Name="uxSubmit" Click="uxSubmit_Click" Background="{x:Null}" Cursor="Hand" Height="30" Canvas.Left="93" Canvas.Top="40" Width="150">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/images/baseline_lock_open_black_24dp.png" Margin="0,0,5,0" Width="20" />

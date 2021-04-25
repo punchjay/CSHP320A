@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HelloWorld
 {
@@ -23,14 +11,29 @@ namespace HelloWorld
         public MainWindow()
         {
             InitializeComponent();
-            //uxSubmit.IsEnabled = false;
-            //WindowState = WindowState.Maximized;
+            uxSubmit.IsEnabled = false;
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Submitting Password:" + uxPassword.Text);
+            MessageBox.Show("Submitting Password: " + uxPassword.Text);
+            uxName.Clear();
+            uxPassword.Clear();
             uxSubmit.IsEnabled = false;
+        }
+
+        private void textBoxHandleChange() {
+            if (uxName.Text.Length >= 1 && uxPassword.Text.Length >= 1) uxSubmit.IsEnabled = true;
+        }
+
+        private void uxName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            textBoxHandleChange();
+        }
+
+        private void uxPassword_TextChange(object sender, TextChangedEventArgs e)
+        {
+            textBoxHandleChange();
         }
     }
 }
