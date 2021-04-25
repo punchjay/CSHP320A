@@ -11,7 +11,6 @@ namespace HelloWorld
         public MainWindow()
         {
             InitializeComponent();
-            uxSubmit.IsEnabled = false;
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
@@ -20,20 +19,31 @@ namespace HelloWorld
             uxName.Clear();
             uxPassword.Clear();
             uxSubmit.IsEnabled = false;
+            imgLockOpen.Visibility = Visibility.Collapsed;
         }
 
-        private void textBoxHandleChange() {
-            if (uxName.Text.Length >= 1 && uxPassword.Text.Length >= 1) uxSubmit.IsEnabled = true;
+        private void TextBoxHandleChange()
+        {
+            if (uxName.Text.Length >= 1 && uxPassword.Text.Length >= 1)
+            {
+                uxSubmit.IsEnabled = true;
+                imgLockOpen.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                uxSubmit.IsEnabled = false;
+                imgLockOpen.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void uxName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            textBoxHandleChange();
+            TextBoxHandleChange();
         }
 
         private void uxPassword_TextChange(object sender, TextChangedEventArgs e)
         {
-            textBoxHandleChange();
+            TextBoxHandleChange();
         }
     }
 }
