@@ -8,15 +8,16 @@ namespace homework02
     {
         static void Main(string[] args)
         {
-            List<Models.User> Users = new List<Models.User>();
-
-            Users.Add(new Models.User { Name = "Dave", Password = "hello" });
-            Users.Add(new Models.User { Name = "Steve", Password = "steve" });
-            Users.Add(new Models.User { Name = "Lisa", Password = "hello" });
+            List<Models.User> Users = new List<Models.User>
+            {
+                new Models.User { Name = "Dave", Password = "hello" },
+                new Models.User { Name = "Steve", Password = "steve" },
+                new Models.User { Name = "Lisa", Password = "hello" }
+            };
 
             //var QueryPasswordHello =
             //    from user in Users
-            //    where user.Password == "hello"
+            //    where user.Password.ToUpper() == "HELLO"
             //    select user;
 
             //using lambda operator same query as above
