@@ -28,7 +28,7 @@ namespace homework02
             }
             Console.WriteLine("\n");
 
-            var QuerySameNameAsPassword = Users.Cast<Models.User>().Where(user => user.Name.ToLower() == user.Password);
+            var QuerySameNameAsPassword = Users.Where(user => user.Name.ToLower() == user.Password);
             Console.WriteLine("Users where lower-cased password version of their name:");
             foreach (var user in QuerySameNameAsPassword)
             {
@@ -36,8 +36,8 @@ namespace homework02
             }
             Console.WriteLine("\n");
 
-            var QueryFirstPasswordHello = Users.Cast<Models.User>().FirstOrDefault(user => user.Password.ToUpper() == "HELLO");
-            Console.WriteLine(QueryFirstPasswordHello.Name);
+            var QueryFirstPasswordHello = Users.FirstOrDefault(user => user.Password.ToUpper() == "HELLO");
+            //Console.WriteLine(QueryFirstPasswordHello.Name);
             Users.Remove(QueryFirstPasswordHello);
 
             Console.WriteLine("Users remaining:");
