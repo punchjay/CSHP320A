@@ -28,14 +28,17 @@ namespace homework02
             }
             Console.WriteLine("\n");
 
-            var QuerySameNameAsPassword = Users.Where(user => user.Name.ToLower() == user.Password);
-            //Users.Remove(new Models.User { Name = "Dave", Password = "hello" });
+            var QuerySameNameAsPassword = Users.Cast<Models.User>().Where(user => user.Name.ToLower() == user.Password);
             Console.WriteLine("Users where lower-cased password version of their name:");
             foreach (var user in QuerySameNameAsPassword)
             {
                 Console.WriteLine(user.Name);
             }
             Console.WriteLine("\n");
+
+            var QueryFirstPasswordHello = Users.Cast<Models.User>().FirstOrDefault(user => user.Password.ToUpper() == "HELLO");
+            Console.WriteLine(QueryFirstPasswordHello.Name);
+            Users.Remove(QueryFirstPasswordHello);
 
             Console.WriteLine("Users remaining:");
             Users.ForEach(user => Console.Write($"Name: {user.Name} - Password: {user.Password}\n"));
