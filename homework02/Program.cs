@@ -8,24 +8,27 @@ namespace homework02
     {
         static void Main(string[] args)
         {
-            var users = new List<Models.User>
+            var Users = new List<Models.User>
             {
                 new Models.User { Name = "Dave", Password = "hello" },
                 new Models.User { Name = "Steve", Password = "steve" },
                 new Models.User { Name = "Lisa", Password = "hello" }
             };
 
+            //Users.ForEach(user => Console.Write($"Name: {user.Name} - Password: {user.Password}\t"));
+
             //using lambda operator same query as below
-            var QueryPasswordHello = users.Where(password => password.Password == "hello");
+            var QueryPasswordHello = Users.Where(user => user.Password == "hello");
 
-            //var QueryPasswordHello = 
-            //    from password in users
-            //    where password.Password == "hello"
-            //    select password;
+            //var QueryPasswordHello =
+            //    from user in Users
+            //    where user.Password == "hello"
+            //    select user;
 
-            users.ForEach(i => Console.Write($"Name: {i.Name} - Password: {i.Password}\t"));
-            Console.WriteLine(QueryPasswordHello.Count());
+            foreach (var user in QueryPasswordHello)
+            {
+                Console.WriteLine(user.Name);
+            }
         }
     }
 }
- 
