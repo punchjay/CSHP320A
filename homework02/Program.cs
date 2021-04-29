@@ -8,13 +8,14 @@ namespace homework02
     {
         static void Main(string[] args)
         {
-            var Users = new List<Models.User>();
+            List<Models.User> Users = new List<Models.User>();
 
             Users.Add(new Models.User { Name = "Dave", Password = "hello" });
             Users.Add(new Models.User { Name = "Steve", Password = "steve" });
             Users.Add(new Models.User { Name = "Lisa", Password = "hello" });
 
-            //Users.ForEach(user => Console.Write($"Name: {user.Name} - Password: {user.Password}\t"));
+            Users.ForEach(user => Console.Write($"Name: {user.Name} - Password: {user.Password}\n"));
+            Console.WriteLine("\n");
 
             //var QueryPasswordHello =
             //    from user in Users
@@ -28,14 +29,19 @@ namespace homework02
             {
                 Console.WriteLine(user.Name);
             }
+            Console.WriteLine("\n");
 
-            var QuerySameNameAsPassord = Users.Where(user => user.Name == user.Password);
-            //Users.RemoveAll(QuerySameNameAsPassord);
-
-            foreach (var user in QuerySameNameAsPassord)
+            var QuerySameNameAsPassord = Users.Where(user => user.Name.ToLower() == user.Password);
+            Console.WriteLine(QuerySameNameAsPassord.Count());
+            Users.Remove(new Models.User { Name = "Dave", Password = "hello" });
+            foreach (var user in Users)
             {
+
                 Console.WriteLine(user.Name);
             }
+
+            //Users.ForEach(user => Console.Write($"Name: {user.Name} - Password: {user.Password}\n"));
+
         }
     }
 }
