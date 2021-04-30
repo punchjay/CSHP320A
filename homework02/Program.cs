@@ -12,6 +12,9 @@ namespace homework02
             {
                 new Models.User { Name = "Dave", Password = "hello" },
                 new Models.User { Name = "Steve", Password = "steve" },
+                new Models.User { Name = "Jay", Password = "Jay" },
+                new Models.User { Name = "bob", Password = "bob" },
+                new Models.User { Name = "Tom", Password = "tom" },
                 new Models.User { Name = "Lisa", Password = "hello" }
             };
 
@@ -34,12 +37,13 @@ namespace homework02
             foreach (var user in QuerySameNameAsPassword)
             {
                 Console.WriteLine(user.Name);
+                user.Password = "";
             }
-            Users.RemoveAll(user => user.Name.ToLower() == user.Password);
+            //Users.RemoveAll(user => user.Name.ToLower() == user.Password);
             Console.WriteLine("\n");
 
             var QueryFirstPasswordHello = Users.FirstOrDefault(user => user.Password.ToUpper() == "HELLO");
-            Console.WriteLine("First User that has the password 'hello'");
+            Console.WriteLine("First User that has the password 'hello':");
             Console.WriteLine(QueryFirstPasswordHello.Name);
             Console.WriteLine("\n");
             Users.Remove(QueryFirstPasswordHello);
