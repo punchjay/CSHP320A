@@ -35,6 +35,7 @@ namespace homework02
             {
                 Console.WriteLine(user.Name);
             }
+            Users.RemoveAll(user => user.Name.ToLower() == user.Password);
             Console.WriteLine("\n");
 
             var QueryFirstPasswordHello = Users.FirstOrDefault(user => user.Password.ToUpper() == "HELLO");
