@@ -32,14 +32,13 @@ namespace homework02
             }
             Console.WriteLine("\n");
 
-            var QuerySameNameAsPassword = Users.Where(user => user.Name.ToLower() == user.Password);
+            var QuerySameNameAsPassword = Users.Where(user => user.Name.ToLower() == user.Password).ToList();
             Console.WriteLine("Users where lower-cased password version of their name:");
             foreach (var user in QuerySameNameAsPassword)
             {
                 Console.WriteLine(user.Name);
                 user.Password = "";
             }
-            //Users.RemoveAll(user => user.Name.ToLower() == user.Password);
             Console.WriteLine("\n");
 
             var QueryFirstPasswordHello = Users.FirstOrDefault(user => user.Password.ToUpper() == "HELLO");
