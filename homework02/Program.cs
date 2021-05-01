@@ -39,7 +39,7 @@ namespace homework02
             Console.WriteLine("\n");
 
             var QueryFirstPasswordHello = Users.FirstOrDefault(user => user.Password.ToUpper() == "HELLO");
-            Console.WriteLine("First User that has the password 'hello':");
+            Console.WriteLine("First user that has the password 'hello':");
             Console.WriteLine(QueryFirstPasswordHello.Name);
             Console.WriteLine("\n");
             Users.Remove(QueryFirstPasswordHello);
