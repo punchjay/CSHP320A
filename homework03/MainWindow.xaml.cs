@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Data;
 
 namespace homework03
 {
@@ -15,11 +17,15 @@ namespace homework03
             List<Models.User> Users = new List<Models.User>
             {
                 new Models.User { Name = "Dave", Password = "1DavePwd" },
-                new Models.User { Name = "Steve", Password="2stevePwd" },
-                new Models.User { Name="Lisa", Password="3lisaPwd" }
+                new Models.User { Name = "Steve", Password="2StevePwd" },
+                new Models.User { Name="Lisa", Password="3LisaPwd" }
             };
 
             uxList.ItemsSource = Users;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
+            view.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Descending));
+            view.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
         }
     }
 }
