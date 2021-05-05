@@ -22,10 +22,13 @@ namespace homework03
             };
 
             uxList.ItemsSource = Users;
+        }
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
-            view.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Descending));
-            view.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
+        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            CollectionView userView = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
+            userView.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Descending));
+            userView.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
         }
     }
 }
