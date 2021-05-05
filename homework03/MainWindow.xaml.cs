@@ -16,8 +16,8 @@ namespace homework03
 
             List<Models.User> Users = new List<Models.User>
             {
-                new Models.User { Name = "Dave", Password = "1DavePwd" },
                 new Models.User { Name = "Steve", Password="2StevePwd" },
+                new Models.User { Name = "Dave", Password = "1DavePwd" },
                 new Models.User { Name="Lisa", Password="3LisaPwd" }
             };
 
@@ -27,7 +27,7 @@ namespace homework03
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
             CollectionView userView = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
-            userView.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Descending));
+            userView.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
             userView.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
         }
     }

@@ -10,8 +10,8 @@
         <ListView x:Name="uxList" GridViewColumnHeader.Click="GridViewColumnHeader_Click">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="User Name"></GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Password}" Header="User Password"></GridViewColumn>
+                    <GridViewColumn x:Name="uxName" DisplayMemberBinding="{Binding Name}" Header="User Name"></GridViewColumn>
+                    <GridViewColumn x:Name="uxPassword" DisplayMemberBinding="{Binding Password}" Header="User Password"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
