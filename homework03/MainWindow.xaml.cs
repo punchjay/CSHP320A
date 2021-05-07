@@ -30,9 +30,9 @@ namespace homework03
             CollectionView userView = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
             userView.SortDescriptions.Clear();
 
-            var columnHeader = (e.OriginalSource as GridViewColumnHeader).Column.Header.ToString();
-            if (columnHeader == "User Name") userView.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
-            if (columnHeader == "User Password") userView.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
+            var columnHeaderName = (e.OriginalSource as GridViewColumnHeader).Column.Header.ToString();
+            if (columnHeaderName == "User Name") userView.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
+            if (columnHeaderName == "User Password") userView.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
         }
     }
 }
