@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="uxList" GridViewColumnHeader.Click="GridViewColumnHeader_Click">
+        <ListView x:Name="uxList" GridViewColumnHeader.Click="uxList_Click">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn x:Name="uxName" DisplayMemberBinding="{Binding Name}" Header="User Name"></GridViewColumn>
-                    <GridViewColumn x:Name="uxPassword" DisplayMemberBinding="{Binding Password}" Header="User Password"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="User Name"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Password}" Header="User Password"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace homework03
@@ -24,11 +25,14 @@ namespace homework03
             uxList.ItemsSource = Users;
         }
 
-        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        private void uxList_Click(object sender, RoutedEventArgs e)
         {
             CollectionView userView = (CollectionView)CollectionViewSource.GetDefaultView(uxList.ItemsSource);
-            userView.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
-            userView.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
-        }
+            userView.SortDescriptions.Clear();
+
+            var ColumnHeader = (e.OriginalSource as GridViewColumnHeader).Column.Header.ToString();
+            if (ColumnHeader == "User Name") userView.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
+            if (ColumnHeader == "User Password") userView.SortDescriptions.Add(new SortDescription("Password", ListSortDirection.Ascending));
+         }
     }
 }
