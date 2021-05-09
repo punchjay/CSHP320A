@@ -20,7 +20,7 @@
             <TextBox x:Name="uxZipCode" Height="25" Canvas.Left="93" Width="150" TextChanged="uxZipCode_TextChanged"/>
         </Canvas>
         <Canvas Grid.ColumnSpan="2" Margin="25,0,0,0" Grid.RowSpan="2" Grid.Row="1">
-            <Button x:Name="uxSubmitZipCodeBt" Background="{x:Null}" Cursor="Hand" Height="30" Canvas.Left="93" Canvas.Top="40" Width="150" Click="uxSubmitZipCodeBt_Click">
+            <Button x:Name="uxSubmitZipCodeBt" Background="{x:Null}" Cursor="Hand" Height="30" Canvas.Left="93" Canvas.Top="40" Width="150" IsEnabled="False" Click="uxSubmitZipCodeBt_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Submit" VerticalAlignment="Center" />
                 </StackPanel>

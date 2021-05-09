@@ -27,13 +27,14 @@ namespace homework04
 
         private void uxZipCode_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            uxSubmitZipCodeBt.IsEnabled = true;
         }
 
         private void uxSubmitZipCodeBt_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Zip Code: " + uxZipCode.Text);
             uxZipCode.Clear();
+            uxSubmitZipCodeBt.IsEnabled = false;
         }
     }
 }
