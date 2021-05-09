@@ -24,5 +24,16 @@ namespace homework04
         {
             InitializeComponent();
         }
+
+        private void uxZipCode_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void uxSubmitZipCodeBt_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Zip Code: " + uxZipCode.Text);
+            uxZipCode.Clear();
+        }
     }
 }
