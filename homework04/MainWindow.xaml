@@ -11,12 +11,10 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="150" />
         </Grid.ColumnDefinitions>
-
         <Canvas Grid.ColumnSpan="2" Margin="25,25,0,0">
             <Label Content="Enter Zip Code:" Height="26" Width="93"/>
             <TextBox x:Name="uxZipCode" Height="25" Canvas.Left="93" Width="150" TextChanged="uxZipCode_TextChanged"/>
