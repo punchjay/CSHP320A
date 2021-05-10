@@ -17,21 +17,31 @@ namespace homework04
 
         public bool IsZipCode(string zipCode)
         {
-            string pattern = @"^\d{5}(\-\d{4})?$";
-            //var _caZipRegEx = @"^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ])\ {0,1}(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$";
-            Regex regex = new Regex(pattern);
-            bool m = regex.IsMatch(zipCode);
-            MessageBox.Show(m.ToString());
-            return regex.IsMatch(zipCode);
+            string usPattern = @"^\d{5}(\-\d{4})?$";
+            string caPattern = @"^[A-Z]\d[A-Z]( )?\d[A-Z]\d$/i";
+
+            Regex usRegex = new Regex(usPattern);
+            Regex caRegex = new Regex(caPattern);
+
+            bool usZipCode = usRegex.IsMatch(zipCode);
+            bool caZipCode = caRegex.IsMatch(zipCode);
+            bool isZipCodeMatch = usZipCode || caZipCode;
+
+            if (isZipCodeMatch)
+            {
+                MessageBox.Show(usZipCode.ToString());
+                uxSubmitZipCodeBt.IsEnabled = true;
+            }
+            else
+            {
+                uxSubmitZipCodeBt.IsEnabled = false;
+            }
+            return isZipCodeMatch;
         }
 
         private void uxZipCode_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (uxZipCode.Text.Length >= 5)
-            {
-                uxSubmitZipCodeBt.IsEnabled = true;
-                IsZipCode(uxZipCode.Text.ToString());
-            }
+            IsZipCode(uxZipCode.Text.ToString());
         }
 
         private void uxSubmitZipCodeBt_Click(object sender, RoutedEventArgs e)
