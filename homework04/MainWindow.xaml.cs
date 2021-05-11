@@ -1,5 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace homework04
@@ -15,33 +14,36 @@ namespace homework04
             uxZipCode.MaxLength = 10;
         }
 
-        public bool IsZipCode(string zipCode)
-        {
-            string usPattern = @"^\d{5}(\-\d{4})?$";
-            string caPattern = @"^[A-Z]\d[A-Z]( )?\d[A-Z]\d$/i";
+        //public bool IsZipCode(string zipCode)
+        //{
+        //    string usPattern = @"^\d{5}(\-\d{4})?$";
+        //    string caPattern = @"^[A-Z]\d[A-Z]( )?\d[A-Z]\d$/i";
 
-            Regex usRegex = new Regex(usPattern);
-            Regex caRegex = new Regex(caPattern);
+        //    Regex usRegex = new Regex(usPattern);
+        //    Regex caRegex = new Regex(caPattern);
 
-            bool usZipCode = usRegex.IsMatch(zipCode);
-            bool caZipCode = caRegex.IsMatch(zipCode);
-            bool isZipCodeMatch = usZipCode || caZipCode;
+        //    bool usZipCode = usRegex.IsMatch(zipCode);
+        //    bool caZipCode = caRegex.IsMatch(zipCode);
+        //    bool isZipCodeMatch = usZipCode || caZipCode;
 
-            if (isZipCodeMatch)
-            {
-                MessageBox.Show(usZipCode.ToString());
-                uxSubmitZipCodeBt.IsEnabled = true;
-            }
-            else
-            {
-                uxSubmitZipCodeBt.IsEnabled = false;
-            }
-            return isZipCodeMatch;
-        }
+        //    if (isZipCodeMatch)
+        //    {
+        //        MessageBox.Show(usZipCode.ToString());
+        //        uxSubmitZipCodeBt.IsEnabled = true;
+        //    }
+        //    else
+        //    {
+        //        uxSubmitZipCodeBt.IsEnabled = false;
+        //    }
+        //    return isZipCodeMatch;
+        //}
 
         private void uxZipCode_TextChanged(object sender, TextChangedEventArgs e)
         {
-            IsZipCode(uxZipCode.Text.ToString());
+            IsZipCode checkZipCode = new IsZipCode();
+
+            //checkZipCode(uxZipCode.Text.ToString());
+            checkZipCode.ZCode(uxZipCode.Text.ToString());
         }
 
         private void uxSubmitZipCodeBt_Click(object sender, RoutedEventArgs e)
