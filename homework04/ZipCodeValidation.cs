@@ -6,7 +6,7 @@ namespace homework04
     {
         public ZipCodeValidation()
         {
-            ZipCode = "98017";
+
         }
 
         public ZipCodeValidation(string zipCode)
@@ -26,7 +26,7 @@ namespace homework04
             bool caZipCode = caRegex.IsMatch(zipCode);
             bool isZipCodeMatch = usZipCode || caZipCode;
 
-            MainWindow uiMain = ((MainWindow)System.Windows.Application.Current.MainWindow);
+            MainWindow uiMain = (MainWindow)System.Windows.Application.Current.MainWindow;
 
             if (isZipCodeMatch)
             {
