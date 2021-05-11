@@ -50,6 +50,7 @@ namespace homework04
             set
             {
                 _zipCode = value;
+                IsZipCodeValid(_zipCode);
             }
         }
     }
