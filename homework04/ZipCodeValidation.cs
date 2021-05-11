@@ -2,19 +2,19 @@
 
 namespace homework04
 {
-    class IsZipCode
+    class ZipCodeValidation
     {
-        public IsZipCode()
+        public ZipCodeValidation()
         {
             ZipCode = "98017";
         }
 
-        public IsZipCode(string zipCode)
+        public ZipCodeValidation(string zipCode)
         {
             ZipCode = zipCode;
         }
 
-        public bool ZCode(string zipCode)
+        public bool IsZipCodeValid(string zipCode)
         {
             string usPattern = @"^\d{5}(\-\d{4})?$";
             string caPattern = @"^[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]$";

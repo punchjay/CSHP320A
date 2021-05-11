@@ -15,8 +15,8 @@ namespace homework04
 
         private void uxZipCode_TextChanged(object sender, TextChangedEventArgs e)
         {
-            IsZipCode checkZipCode = new IsZipCode();
-            checkZipCode.ZCode(uxZipCode.Text.ToString());
+            ZipCodeValidation checkZipCode = new ZipCodeValidation();
+            checkZipCode.IsZipCodeValid(uxZipCode.Text.ToString());
         }
 
         private void uxSubmitZipCodeBt_Click(object sender, RoutedEventArgs e)
