@@ -11,38 +11,11 @@ namespace homework04
         public MainWindow()
         {
             InitializeComponent();
-            uxZipCode.MaxLength = 10;
         }
-
-        //public bool IsZipCode(string zipCode)
-        //{
-        //    string usPattern = @"^\d{5}(\-\d{4})?$";
-        //    string caPattern = @"^[A-Z]\d[A-Z]( )?\d[A-Z]\d$/i";
-
-        //    Regex usRegex = new Regex(usPattern);
-        //    Regex caRegex = new Regex(caPattern);
-
-        //    bool usZipCode = usRegex.IsMatch(zipCode);
-        //    bool caZipCode = caRegex.IsMatch(zipCode);
-        //    bool isZipCodeMatch = usZipCode || caZipCode;
-
-        //    if (isZipCodeMatch)
-        //    {
-        //        MessageBox.Show(usZipCode.ToString());
-        //        uxSubmitZipCodeBt.IsEnabled = true;
-        //    }
-        //    else
-        //    {
-        //        uxSubmitZipCodeBt.IsEnabled = false;
-        //    }
-        //    return isZipCodeMatch;
-        //}
 
         private void uxZipCode_TextChanged(object sender, TextChangedEventArgs e)
         {
             IsZipCode checkZipCode = new IsZipCode();
-
-            //checkZipCode(uxZipCode.Text.ToString());
             checkZipCode.ZCode(uxZipCode.Text.ToString());
         }
 

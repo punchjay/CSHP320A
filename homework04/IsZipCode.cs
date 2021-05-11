@@ -1,5 +1,4 @@
 ﻿using System.Text.RegularExpressions;
-using System.Windows;
 
 namespace homework04
 {
@@ -7,6 +6,7 @@ namespace homework04
     {
         public IsZipCode()
         {
+            ZipCode = "98017";
         }
 
         public IsZipCode(string zipCode)
@@ -17,7 +17,7 @@ namespace homework04
         public bool ZCode(string zipCode)
         {
             string usPattern = @"^\d{5}(\-\d{4})?$";
-            string caPattern = @"^[A-Z]\d[A-Z]( )?\d[A-Z]\d$/i";
+            string caPattern = @"^[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]$";
 
             Regex usRegex = new Regex(usPattern);
             Regex caRegex = new Regex(caPattern);
@@ -30,7 +30,6 @@ namespace homework04
 
             if (isZipCodeMatch)
             {
-                MessageBox.Show(usZipCode.ToString());
                 uiMain.uxSubmitZipCodeBt.IsEnabled = true;
             }
             else
