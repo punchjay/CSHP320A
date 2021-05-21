@@ -31,9 +31,32 @@ namespace homework05
                 uxTurn.Text = "O's turn.";
             }
             clickedButton.IsEnabled = false;
-            //win(clickedButton.Content.ToString());
+            CheckGameWinner(clickedButton.Content.ToString());
             userTurn += 1;
             if (userTurn > 2) userTurn = 1;
+        }
+
+        private void CheckGameWinner(string btnContent)
+        {
+            foreach (Button btn in uxGrid.Children)
+            {
+                if ((string)btn.Content == btnContent & (string)btn.Content == btnContent & (string)btn.Content == btnContent)
+                {
+                    if (btnContent == "O")
+                    {
+                        uxTurn.Text = "O is the winner!!!";
+                    }
+                    else if (btnContent == "X")
+                    {
+                        uxTurn.Text = "X is the winner!!!";
+                    }
+                }
+                else
+                {
+                    if (btn.IsEnabled == true) return;
+                    uxTurn.Text = "Draw, no one is the winner!!!";
+                }
+            }
         }
 
         private void uxNewGame_Click(object sender, RoutedEventArgs e)
