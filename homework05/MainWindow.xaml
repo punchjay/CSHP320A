@@ -17,7 +17,7 @@
 
             <StatusBar Height="24" DockPanel.Dock="Bottom">
                 <StatusBarItem>
-                    <TextBlock x:Name="uxTurn">z</TextBlock>
+                    <TextBlock x:Name="uxTurn">To begin Tic-Tac-Toe, X goes first, then O.</TextBlock>
                 </StatusBarItem>
             </StatusBar>
 
