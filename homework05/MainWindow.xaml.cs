@@ -22,9 +22,9 @@ namespace homework05
 
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void uxExit_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.MainWindow.Close();
         }
     }
 }

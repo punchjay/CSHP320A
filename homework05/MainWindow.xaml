@@ -11,13 +11,13 @@
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
                     <MenuItem x:Name="uxNewGame" Header="_New Game" Click="uxNewGame_Click"></MenuItem>
-                    <MenuItem Header="E_xit" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="E_xit" Click="uxExit_Click"></MenuItem>
                 </MenuItem>
             </Menu>
 
             <StatusBar Height="24" DockPanel.Dock="Bottom">
                 <StatusBarItem>
-                    <TextBlock x:Name="uxTurn"></TextBlock>
+                    <TextBlock x:Name="uxTurn">z</TextBlock>
                 </StatusBarItem>
             </StatusBar>
 
