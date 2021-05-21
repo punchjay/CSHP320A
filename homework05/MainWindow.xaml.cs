@@ -13,6 +13,7 @@ namespace homework05
         public MainWindow()
         {
             InitializeComponent();
+            uxTurn.Text = "To begin Tic-Tac-Toe, X goes first, then O.";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -30,9 +31,9 @@ namespace homework05
                 uxTurn.Text = "O's turn.";
             }
             clickedButton.IsEnabled = false;
+            //win(clickedButton.Content.ToString());
             userTurn += 1;
-            if (userTurn > 2)
-                userTurn = 1;
+            if (userTurn > 2) userTurn = 1;
         }
 
         private void uxNewGame_Click(object sender, RoutedEventArgs e)
@@ -41,6 +42,7 @@ namespace homework05
             {
                 btn.Content = "";
                 btn.IsEnabled = true;
+                uxTurn.Text = "To begin Tic-Tac-Toe, X goes first, then O.";
             }
         }
 

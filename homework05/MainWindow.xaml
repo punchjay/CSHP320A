@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:homework05"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="385" Width="320">
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -15,34 +15,34 @@
                 </MenuItem>
             </Menu>
 
-            <StatusBar Height="24" DockPanel.Dock="Bottom">
+            <StatusBar Height="24" DockPanel.Dock="Bottom" FontWeight="Bold">
                 <StatusBarItem>
-                    <TextBlock x:Name="uxTurn">To begin Tic-Tac-Toe, X goes first, then O.</TextBlock>
+                    <TextBlock x:Name="uxTurn"></TextBlock>
                 </StatusBarItem>
             </StatusBar>
 
             <Border BorderBrush="Black" BorderThickness="2">
                 <Grid x:Name="uxGrid" Background="pink">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"></ColumnDefinition>
-                        <ColumnDefinition Width="50"></ColumnDefinition>
-                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Row="0" Grid.Column="0" Click="Button_Click" Tag="0,0"></Button>
-                    <Button Grid.Row="0" Grid.Column="1" Click="Button_Click" Tag="0,1"></Button>
-                    <Button Grid.Row="0" Grid.Column="2" Click="Button_Click" Tag="0,2"></Button>
-                    <Button Grid.Row="1" Grid.Column="0" Click="Button_Click" Tag="1,0"></Button>
-                    <Button Grid.Row="1" Grid.Column="1" Click="Button_Click" Tag="1,1"></Button>
-                    <Button Grid.Row="1" Grid.Column="2" Click="Button_Click" Tag="1,2"></Button>
-                    <Button Grid.Row="2" Grid.Column="0" Click="Button_Click" Tag="2,0"></Button>
-                    <Button Grid.Row="2" Grid.Column="1" Click="Button_Click" Tag="2,1"></Button>
-                    <Button Grid.Row="2" Grid.Column="2" Click="Button_Click" Tag="2,2"></Button>
+                    <Button Grid.Row="0" Grid.Column="0" Click="Button_Click" Tag="0,0" FontWeight="Bold" FontSize="72"></Button>
+                    <Button Grid.Row="0" Grid.Column="1" Click="Button_Click" Tag="0,1" FontWeight="Bold" FontSize="72"></Button>
+                    <Button Grid.Row="0" Grid.Column="2" Click="Button_Click" Tag="0,2" FontWeight="Bold" FontSize="72"></Button>
+                    <Button Grid.Row="1" Grid.Column="0" Click="Button_Click" Tag="1,0" FontWeight="Bold" FontSize="72"></Button>
+                    <Button Grid.Row="1" Grid.Column="1" Click="Button_Click" Tag="1,1" FontWeight="Bold" FontSize="72"></Button>
+                    <Button Grid.Row="1" Grid.Column="2" Click="Button_Click" Tag="1,2" FontWeight="Bold" FontSize="72"></Button>
+                    <Button Grid.Row="2" Grid.Column="0" Click="Button_Click" Tag="2,0" FontWeight="Bold" FontSize="72"></Button>
+                    <Button Grid.Row="2" Grid.Column="1" Click="Button_Click" Tag="2,1" FontWeight="Bold" FontSize="72"></Button>
+                    <Button Grid.Row="2" Grid.Column="2" Click="Button_Click" Tag="2,2" FontWeight="Bold" FontSize="72"></Button>
                 </Grid>
             </Border>
         </DockPanel>
