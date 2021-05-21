@@ -10,8 +10,8 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
-                    <MenuItem x:Name="uxNewGame" Header="_New Game" Click="uxNewGame_Click"></MenuItem>
-                    <MenuItem Header="E_xit" Click="uxExit_Click"></MenuItem>
+                    <MenuItem x:Name="uxNewGame" Header="_New Game" Click="UxNewGame_Click"></MenuItem>
+                    <MenuItem Header="E_xit" Click="UxExit_Click"></MenuItem>
                 </MenuItem>
             </Menu>
 

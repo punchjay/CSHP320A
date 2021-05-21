@@ -59,7 +59,7 @@ namespace homework05
             }
         }
 
-        private void uxNewGame_Click(object sender, RoutedEventArgs e)
+        private void UxNewGame_Click(object sender, RoutedEventArgs e)
         {
             foreach (Button btn in uxGrid.Children)
             {
@@ -69,7 +69,7 @@ namespace homework05
             }
         }
 
-        private void uxExit_Click(object sender, RoutedEventArgs e)
+        private void UxExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Close();
         }
