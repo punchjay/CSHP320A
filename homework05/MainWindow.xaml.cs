@@ -18,45 +18,43 @@ namespace homework05
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var clickedButton = sender as Button;
-
+            var clickedBtn = sender as Button;
             if (userTurn == 1)
             {
-                clickedButton.Content = "O";
+                clickedBtn.Content = "O";
                 uxTurn.Text = "X's turn.";
             }
             else
             {
-                clickedButton.Content = "X";
+                clickedBtn.Content = "X";
                 uxTurn.Text = "O's turn.";
             }
-            clickedButton.IsEnabled = false;
-            CheckGameWinner(clickedButton.Content.ToString());
+            clickedBtn.IsEnabled = false;
+            CheckGameWinner(clickedBtn);
             userTurn += 1;
-            if (userTurn > 2) userTurn = 1;
+            if (userTurn > 1) userTurn = 0;
         }
 
-        private void CheckGameWinner(string btnContent)
+        private void CheckGameWinner(Button btnClicked)
         {
-            foreach (Button btn in uxGrid.Children)
+            if ((string)btnClicked.Tag == "2,0" && (string)btnClicked.Tag == "2,1" && (string)btnClicked.Tag == "2,2") 
             {
-                if ((string)btn.Content == btnContent & (string)btn.Content == btnContent & (string)btn.Content == btnContent)
+                if ((string)btnClicked.Content == "O")
                 {
-                    if (btnContent == "O")
-                    {
-                        uxTurn.Text = "O is the winner!!!";
-                    }
-                    else if (btnContent == "X")
-                    {
-                        uxTurn.Text = "X is the winner!!!";
-                    }
+                    uxTurn.Text = "O is the winner!!!";
                 }
-                else
+                else if ((string)btnClicked.Content == "X")
                 {
-                    if (btn.IsEnabled == true) return;
-                    uxTurn.Text = "Draw, no one is the winner!!!";
+                    uxTurn.Text = "X is the winner!!!";
                 }
+                //btn.IsEnabled = false;
             }
+            //else
+            //{
+            //    if (btn.IsEnabled == true) return;
+            //    uxTurn.Text = "Draw, no one is the winner!!!";
+            //}
+            //}
         }
 
         private void UxNewGame_Click(object sender, RoutedEventArgs e)
@@ -65,6 +63,7 @@ namespace homework05
             {
                 btn.Content = "";
                 btn.IsEnabled = true;
+                userTurn = 0;
                 uxTurn.Text = "To begin Tic-Tac-Toe, X goes first, then O.";
             }
         }
