@@ -37,23 +37,23 @@ namespace homework05
 
         private void CheckGameWinner(Button btnClicked)
         {
-            if ((Button1.Content == btnClicked.Content & Button2.Content == btnClicked.Content & Button3.Content == btnClicked.Content)
-                || (Button1.Content == btnClicked.Content & Button4.Content == btnClicked.Content & Button7.Content == btnClicked.Content)
-                || (Button1.Content == btnClicked.Content & Button5.Content == btnClicked.Content & Button9.Content == btnClicked.Content)
-                || (Button2.Content == btnClicked.Content & Button5.Content == btnClicked.Content & Button8.Content == btnClicked.Content)
-                || (Button3.Content == btnClicked.Content & Button6.Content == btnClicked.Content & Button9.Content == btnClicked.Content)
-                || (Button4.Content == btnClicked.Content & Button5.Content == btnClicked.Content & Button6.Content == btnClicked.Content)
-                || (Button7.Content == btnClicked.Content & Button8.Content == btnClicked.Content & Button9.Content == btnClicked.Content)
-                || (Button3.Content == btnClicked.Content & Button5.Content == btnClicked.Content & Button7.Content == btnClicked.Content))
+            if ((btn01.Content == btnClicked.Content & btn02.Content == btnClicked.Content & btn03.Content == btnClicked.Content)
+                || (btn01.Content == btnClicked.Content & btn04.Content == btnClicked.Content & btn07.Content == btnClicked.Content)
+                || (btn01.Content == btnClicked.Content & btn05.Content == btnClicked.Content & btn09.Content == btnClicked.Content)
+                || (btn02.Content == btnClicked.Content & btn05.Content == btnClicked.Content & btn08.Content == btnClicked.Content)
+                || (btn03.Content == btnClicked.Content & btn06.Content == btnClicked.Content & btn09.Content == btnClicked.Content)
+                || (btn04.Content == btnClicked.Content & btn05.Content == btnClicked.Content & btn06.Content == btnClicked.Content)
+                || (btn07.Content == btnClicked.Content & btn08.Content == btnClicked.Content & btn09.Content == btnClicked.Content)
+                || (btn03.Content == btnClicked.Content & btn05.Content == btnClicked.Content & btn07.Content == btnClicked.Content))
             {
                 if ((string)btnClicked.Content == "O") uxTurn.Text = "O is the winner!!!";
                 else if ((string)btnClicked.Content == "X") uxTurn.Text = "X is the winner!!!";
                 foreach (Button btn in uxGrid.Children) btn.IsEnabled = false;
-             }
+            }
             else
             {
                 foreach (Button btn in uxGrid.Children) if (btn.IsEnabled == true) return;
-                 uxTurn.Text = "Draw, no one is the winner!!!";
+                uxTurn.Text = "Draw, no one is the winner!!!";
             }
         }
 
