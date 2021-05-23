@@ -37,7 +37,14 @@ namespace homework05
 
         private void CheckGameWinner(Button btnClicked)
         {
-            if ((string)btnClicked.Tag == "2,0" && (string)btnClicked.Tag == "2,1" && (string)btnClicked.Tag == "2,2") 
+            if ((Button1.Content == btnClicked.Content & Button2.Content == btnClicked.Content & Button3.Content == btnClicked.Content)
+                || (Button1.Content == btnClicked.Content & Button4.Content == btnClicked.Content & Button7.Content == btnClicked.Content)
+                || (Button1.Content == btnClicked.Content & Button5.Content == btnClicked.Content & Button9.Content == btnClicked.Content)
+                || (Button2.Content == btnClicked.Content & Button5.Content == btnClicked.Content & Button8.Content == btnClicked.Content)
+                || (Button3.Content == btnClicked.Content & Button6.Content == btnClicked.Content & Button9.Content == btnClicked.Content)
+                || (Button4.Content == btnClicked.Content & Button5.Content == btnClicked.Content & Button6.Content == btnClicked.Content)
+                || (Button7.Content == btnClicked.Content & Button8.Content == btnClicked.Content & Button9.Content == btnClicked.Content)
+                || (Button3.Content == btnClicked.Content & Button5.Content == btnClicked.Content & Button7.Content == btnClicked.Content))
             {
                 if ((string)btnClicked.Content == "O")
                 {
@@ -47,13 +54,18 @@ namespace homework05
                 {
                     uxTurn.Text = "X is the winner!!!";
                 }
-                //btn.IsEnabled = false;
+                foreach (Button btn in uxGrid.Children)
+                {
+                    btn.IsEnabled = false;
+                }
             }
             //else
             //{
-            //    if (btn.IsEnabled == true) return;
-            //    uxTurn.Text = "Draw, no one is the winner!!!";
-            //}
+            //    foreach (Button btn in uxGrid.Children)
+            //    {
+            //        if (btn.IsEnabled == true) return;
+            //        uxTurn.Text = "Draw, no one is the winner!!!";
+            //    }
             //}
         }
 
