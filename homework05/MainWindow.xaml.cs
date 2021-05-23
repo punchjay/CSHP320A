@@ -22,7 +22,7 @@ namespace homework05
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var clickedBtn = sender as Button;
+            Button clickedBtn = sender as Button;
             if (userTurn == 1)
             {
                 clickedBtn.Content = "O";
