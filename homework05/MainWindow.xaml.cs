@@ -59,14 +59,14 @@ namespace homework05
                     btn.IsEnabled = false;
                 }
             }
-            //else
-            //{
-            //    foreach (Button btn in uxGrid.Children)
-            //    {
-            //        if (btn.IsEnabled == true) return;
-            //        uxTurn.Text = "Draw, no one is the winner!!!";
-            //    }
-            //}
+            else
+            {
+                foreach (Button btn in uxGrid.Children)
+                {
+                    if (btn.IsEnabled == true) return;
+                }
+                uxTurn.Text = "Draw, no one is the winner!!!";
+            }
         }
 
         private void UxNewGame_Click(object sender, RoutedEventArgs e)
