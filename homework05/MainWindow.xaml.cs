@@ -9,10 +9,10 @@ namespace homework05
     public partial class MainWindow : Window
     {
         int userTurn;
-        string startTx = "To begin Tic-Tac-Toe, X goes first, then O.";
-        string turnTx = "'s turn.";
-        string resultTx = "is the winner!!!";
-        string drawTx = "Draw, no one";
+        readonly string startTx = "To begin Tic-Tac-Toe, X goes first, then O.";
+        readonly string turnTx = "'s turn.";
+        readonly string resultTx = "is the winner!!!";
+        readonly string drawTx = "Draw, no one";
 
         public MainWindow()
         {
