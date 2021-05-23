@@ -46,26 +46,14 @@ namespace homework05
                 || (Button7.Content == btnClicked.Content & Button8.Content == btnClicked.Content & Button9.Content == btnClicked.Content)
                 || (Button3.Content == btnClicked.Content & Button5.Content == btnClicked.Content & Button7.Content == btnClicked.Content))
             {
-                if ((string)btnClicked.Content == "O")
-                {
-                    uxTurn.Text = "O is the winner!!!";
-                }
-                else if ((string)btnClicked.Content == "X")
-                {
-                    uxTurn.Text = "X is the winner!!!";
-                }
-                foreach (Button btn in uxGrid.Children)
-                {
-                    btn.IsEnabled = false;
-                }
-            }
+                if ((string)btnClicked.Content == "O") uxTurn.Text = "O is the winner!!!";
+                else if ((string)btnClicked.Content == "X") uxTurn.Text = "X is the winner!!!";
+                foreach (Button btn in uxGrid.Children) btn.IsEnabled = false;
+             }
             else
             {
-                foreach (Button btn in uxGrid.Children)
-                {
-                    if (btn.IsEnabled == true) return;
-                }
-                uxTurn.Text = "Draw, no one is the winner!!!";
+                foreach (Button btn in uxGrid.Children) if (btn.IsEnabled == true) return;
+                 uxTurn.Text = "Draw, no one is the winner!!!";
             }
         }
 
