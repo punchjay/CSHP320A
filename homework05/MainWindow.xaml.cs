@@ -9,6 +9,7 @@ namespace homework05
     public partial class MainWindow : Window
     {
         int userTurn;
+        int[,] Board = new int[3, 3];
         readonly string startTx = "To begin Tic-Tac-Toe, X goes first, then O.";
         readonly string turnTx = "'s turn.";
         readonly string resultTx = "is the winner!!!";
@@ -23,6 +24,10 @@ namespace homework05
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button clickedBtn = sender as Button;
+            var cordsTag = clickedBtn.Tag.ToString().Split(",");
+            var xValue = int.Parse(cordsTag[0]);
+            var yValue = int.Parse(cordsTag[1]);
+            var positionBtn = new Position() { X = xValue, Y = yValue };
             if (userTurn == 1)
             {
                 clickedBtn.Content = "O";
@@ -34,12 +39,12 @@ namespace homework05
                 uxTurn.Text = $"O{turnTx}";
             }
             clickedBtn.IsEnabled = false;
-            CheckGameResult(clickedBtn);
+            CheckGameResult(clickedBtn, positionBtn);
             userTurn += 1;
             if (userTurn > 1) userTurn = 0;
         }
 
-        private void CheckGameResult(Button btnClicked)
+        private void CheckGameResult(Button btnClicked, Position btnPosition)
         {
             if ((btn01.Content == btnClicked.Content & btn02.Content == btnClicked.Content & btn03.Content == btnClicked.Content)
                 || (btn01.Content == btnClicked.Content & btn04.Content == btnClicked.Content & btn07.Content == btnClicked.Content)
@@ -59,6 +64,12 @@ namespace homework05
                 foreach (Button btn in uxGrid.Children) if (btn.IsEnabled == true) return;
                 uxTurn.Text = $"{drawTx} {resultTx}";
             }
+        }
+
+        public class Position
+        {
+            public int X { get; set; }
+            public int Y { get; set; }
         }
 
         private void UxNewGame_Click(object sender, RoutedEventArgs e)
