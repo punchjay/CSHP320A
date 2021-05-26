@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WishListAppDB
+namespace WishListDB
 {
     public class Class1
     {
