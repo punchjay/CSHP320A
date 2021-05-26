@@ -13,5 +13,19 @@ namespace WishListApp
     /// </summary>
     public partial class App : Application
     {
+        private static WishListRepository.WishListRepository wishListRepository;
+
+        static App()
+        {
+            wishListRepository = new WishListRepository.WishListRepository();
+        }
+
+        public static WishListRepository.WishListRepository WishListRepository
+        {
+            get
+            {
+                return wishListRepository;
+            }
+        }
     }
 }
