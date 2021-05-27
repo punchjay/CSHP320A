@@ -8,12 +8,12 @@ namespace homework05
     /// </summary>
     public partial class MainWindow : Window
     {
-        int userTurn;
-        int[,] Board = new int[3, 3];
-        readonly string startTx = "To begin Tic-Tac-Toe, X goes first, then O.";
-        readonly string turnTx = "'s turn.";
-        readonly string resultTx = "is the winner!!!";
-        readonly string drawTx = "Draw, no one";
+        private int userTurn;
+        private int[,] board = new int[3, 3];
+        private readonly string startTx = "To begin Tic-Tac-Toe, X goes first, then O.";
+        private readonly string turnTx = "'s turn.";
+        private readonly string resultTx = "is the winner!!!";
+        private readonly string drawTx = "Draw, no one";
 
         public MainWindow()
         {
