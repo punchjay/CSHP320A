@@ -1,9 +1,7 @@
-﻿using WishListApp.Models;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
-using System.ComponentModel; // added
 using System.Windows.Controls; // added
-using System.Windows.Documents; //added
+using WishListApp.Models;
 
 namespace WishListApp
 {

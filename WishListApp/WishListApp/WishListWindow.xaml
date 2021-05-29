@@ -22,20 +22,20 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Name:</TextBlock>
-        <TextBox x:Name="uxName" Grid.Column="1" Grid.Row="0"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Brand:</TextBlock>
+        <TextBox x:Name="uxBrand" Grid.Column="1" Grid.Row="0"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Email:</TextBlock>
-        <TextBox x:Name="uxEmail" Grid.Column="1" Grid.Row="1"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Description:</TextBlock>
+        <TextBox x:Name="uxDescription" Grid.Column="1" Grid.Row="1"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Phone Number:</TextBlock>
-        <TextBox x:Name="uxPhoneNumber" Grid.Column="1" Grid.Row="2"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Price:</TextBlock>
+        <TextBox x:Name="uxPrice" Grid.Column="1" Grid.Row="2"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Phone Type:</TextBlock>
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
-            <RadioButton x:Name="uxHome" IsChecked="true">Home</RadioButton>
-            <RadioButton x:Name="uxMobile">Mobile</RadioButton>
-        </StackPanel>
+        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Sku:</TextBlock>
+        <TextBox x:Name="uxSku" Grid.Column="1" Grid.Row="3"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Instock:</TextBlock>
+        <TextBox x:Name="uxInstock" Grid.Column="1" Grid.Row="4"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Notes:</TextBlock>
         <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="5" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>

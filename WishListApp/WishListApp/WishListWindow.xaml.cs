@@ -21,12 +21,12 @@ namespace WishListApp
         {
             WishList = new WishListModel();
 
-            WishList.Brand = uxName.Text;
-            WishList.Description = uxEmail.Text;
-            //WishList.Price = uxPhoneNumber.Text;
-            WishList.Sku = 0;
+            WishList.Brand = uxBrand.Text;
+            WishList.Description = uxDescription.Text;
+            //WishList.Price = uxPrice.Text;
+            //WishList.Sku = uxSku.Text;
             //WishList.InStock = uxInstock.Text;
-            //WishList.Qty = uxNotes.Qty;
+            //WishList.Qty = uxQty.Text;
             WishList.Notes = uxNotes.Text;
             WishList.CreatedDate = DateTime.Now;
 
