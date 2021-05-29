@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using WishListApp.Models;
 
 namespace WishListApp
 {
@@ -22,6 +12,35 @@ namespace WishListApp
         public WishListWindow()
         {
             InitializeComponent();
+            ShowInTaskbar = false;
+        }
+
+        public WishListModel WishList { get; set; }
+
+        private void uxSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            WishList = new WishListModel();
+
+            WishList.Brand = uxName.Text;
+            WishList.Description = uxEmail.Text;
+            //WishList.Price = uxPhoneNumber.Text;
+            WishList.Sku = 0;
+            //WishList.InStock = uxInstock.Text;
+            //WishList.Qty = uxNotes.Qty;
+            WishList.Notes = uxNotes.Text;
+            WishList.CreatedDate = DateTime.Now;
+
+            // This is the return value of ShowDialog( ) below
+            DialogResult = true;
+            Close();
+        }
+
+        private void uxCancel_Click(object sender, RoutedEventArgs e)
+        {
+            // This is the return value of ShowDialog( ) below
+            DialogResult = false;
+            Close();
         }
     }
 }
+
