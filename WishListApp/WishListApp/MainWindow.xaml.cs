@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System.ComponentModel;
+using System.Linq;
 using System.Windows;
-using System.Windows.Controls; // added
+using System.Windows.Controls;
+using System.Windows.Documents;
 using WishListApp.Models;
 
 namespace WishListApp
@@ -10,8 +12,8 @@ namespace WishListApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GridViewColumnHeader listViewSortCol = null; // added for exercise
-        //rivate SortAdorner listViewSortAdorner = null;      // added for exercise
+        private GridViewColumnHeader listViewSortCol = null;
+        private SortAdorner listViewSortAdorner = null;
         private WishListModel selectedWishList;
 
         public MainWindow()
@@ -44,7 +46,7 @@ namespace WishListApp
         // add this method for doing updates
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
         {
-            //var window = new WishListWindow();
+            var window = new WishListWindow();
 
             //// Exercise 2 for update - fix this to call on Clone()
             //window.WishList = selectedWishList.Clone();
@@ -86,20 +88,20 @@ namespace WishListApp
         {
             GridViewColumnHeader column = (sender as GridViewColumnHeader);
             string sortBy = column.Tag.ToString();
-            //if (listViewSortCol != null)
-            //{
-            //    AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
-            //    uxWishListList.Items.SortDescriptions.Clear();
-            //}
+            if (listViewSortCol != null)
+            {
+                AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
+                uxWishListList.Items.SortDescriptions.Clear();
+            }
 
-            //ListSortDirection newDir = ListSortDirection.Ascending;
-            //if (listViewSortCol == column && listViewSortAdorner.Direction == newDir)
-            //    newDir = ListSortDirection.Descending;
+            ListSortDirection newDir = ListSortDirection.Ascending;
+            if (listViewSortCol == column && listViewSortAdorner.Direction == newDir)
+                newDir = ListSortDirection.Descending;
 
-            //listViewSortCol = column;
-            //listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
-            //AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
-            //uxWishListList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
+            listViewSortCol = column;
+            listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
+            AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
+            uxWishListList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
 
         // Important Method: detect if selection has been made
