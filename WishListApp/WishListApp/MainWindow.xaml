@@ -17,7 +17,7 @@
             </MenuItem>
         </Menu>
         <!--Exercise 1 for update use double click to have WishList Window to pop-->
-        <ListView x:Name="uxWishListList" Height="200" 
+        <ListView x:Name="uxWishListList" Height="415" 
                   SelectionChanged="uxWishListList_SelectionChanged" 
                   MouseDoubleClick="uxWishListList_MouseDoubleClick">
             <!---->
@@ -33,30 +33,47 @@
             <ListView.View>
                 <GridView>
 
-                    <!--sorting name-->
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding Brand}" Width="100">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Name" Tag="Name" Click="GridViewColumnHeader_Click" />
+                            <GridViewColumnHeader Content="Brand" Tag="Brand" Click="GridViewColumnHeader_Click" />
                         </GridViewColumn.Header>
                     </GridViewColumn>
 
-                    <!--sorting email-->
-                    <GridViewColumn DisplayMemberBinding="{Binding Email}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Width="250">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Email" Tag="Email" Click="GridViewColumnHeader_Click" />
+                            <GridViewColumnHeader Content="Description" Tag="Description" Click="GridViewColumnHeader_Click" />
                         </GridViewColumn.Header>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding PhoneType}" Header="Phone Type" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding PhoneNumber}" Header="Phone Number" Width="100" />
-
-                    <!--sorting age-->
-                    <GridViewColumn DisplayMemberBinding="{Binding Age}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding Price}" Width="50">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Age" Tag="Age" Click="GridViewColumnHeader_Click" />
+                            <GridViewColumnHeader Content="Price" Tag="Price" Click="GridViewColumnHeader_Click" />
                         </GridViewColumn.Header>
                     </GridViewColumn>
 
+                    <GridViewColumn DisplayMemberBinding="{Binding Sku}" Width="50">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Sku" Tag="Sku" Click="GridViewColumnHeader_Click" />
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding InStock}" Width="50">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="In Stock" Tag="InStock" Click="GridViewColumnHeader_Click" />
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Qty}" Width="50">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Qty" Tag="Qty" Click="GridViewColumnHeader_Click" />
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Notes}" Width="220">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Notes" Tag="Notes" Click="GridViewColumnHeader_Click" />
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
 

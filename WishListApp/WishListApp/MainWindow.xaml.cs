@@ -11,7 +11,7 @@ namespace WishListApp
     public partial class MainWindow : Window
     {
         private GridViewColumnHeader listViewSortCol = null; // added for exercise
-        //private SortAdorner listViewSortAdorner = null;      // added for exercise
+        //rivate SortAdorner listViewSortAdorner = null;      // added for exercise
         private WishListModel selectedWishList;
 
         public MainWindow()
@@ -58,8 +58,8 @@ namespace WishListApp
 
         private void uxFileChange_Loaded(object sender, RoutedEventArgs e)
         {
-            //uxFileChange.IsEnabled = (selectedWishList != null);
-            //uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
+            uxFileChange.IsEnabled = (selectedWishList != null);
+            uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
         }
 
         private void uxFileNew_Click(object sender, RoutedEventArgs e)
@@ -84,8 +84,8 @@ namespace WishListApp
 
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
-            //GridViewColumnHeader column = (sender as GridViewColumnHeader);
-            //string sortBy = column.Tag.ToString();
+            GridViewColumnHeader column = (sender as GridViewColumnHeader);
+            string sortBy = column.Tag.ToString();
             //if (listViewSortCol != null)
             //{
             //    AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
@@ -105,23 +105,23 @@ namespace WishListApp
         // Important Method: detect if selection has been made
         private void uxWishListList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //selectedWishList = (WishListModel)uxWishListList.SelectedValue;
+            selectedWishList = (WishListModel)uxWishListList.SelectedValue;
 
-            //// Exercise 1 under Delete - fix the context menu
-            //uxContextFileDelete.IsEnabled = (selectedWishList != null);
+            // Exercise 1 under Delete - fix the context menu
+            uxContextFileDelete.IsEnabled = (selectedWishList != null);
 
         }
 
         private void uxFileDelete_Click(object sender, RoutedEventArgs e)
         {
-            //App.WishListRepository.Remove(selectedWishList.Id);
-            //selectedWishList = null;
-            //LoadWishLists();
+            App.WishListRepository.Remove(selectedWishList.Id);
+            selectedWishList = null;
+            LoadWishLists();
         }
 
         private void uxFileDelete_Loaded(object sender, RoutedEventArgs e)
         {
-            //uxFileDelete.IsEnabled = (selectedWishList != null);
+            uxFileDelete.IsEnabled = (selectedWishList != null);
         }
 
         // Exercise 1 - Update double-clicking on a contact will bring up the update WishList window
