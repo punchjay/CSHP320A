@@ -48,14 +48,14 @@ namespace WishListApp
         {
             var window = new WishListWindow();
 
-            //// Exercise 2 for update - fix this to call on Clone()
-            //window.WishList = selectedWishList.Clone();
+            // Exercise 2 for update - fix this to call on Clone()
+            window.WishList = selectedWishList.Clone();
 
-            //if (window.ShowDialog() == true)
-            //{
-            //    App.WishListRepository.Update(window.WishList.ToRepositoryModel());
-            //    LoadWishLists();
-            //}
+            if (window.ShowDialog() == true)
+            {
+                App.WishListRepository.Update(window.WishList.ToRepositoryModel());
+                LoadWishLists();
+            }
         }
 
         private void uxFileChange_Loaded(object sender, RoutedEventArgs e)

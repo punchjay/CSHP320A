@@ -47,5 +47,13 @@
 
             return wishListModel;
         }
+
+        // Exercise 2 - Fix update so background behaves correctly
+        // adding Clone() method
+        // so both objects do not point to the same data
+        internal WishListModel Clone()
+        {
+            return (WishListModel)this.MemberwiseClone();
+        }
     }
 }

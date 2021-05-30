@@ -20,6 +20,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Brand:</TextBlock>
@@ -37,10 +38,13 @@
         <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Instock:</TextBlock>
         <TextBox x:Name="uxInstock" Grid.Column="1" Grid.Row="4"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Notes:</TextBlock>
-        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="5" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Qty:</TextBlock>
+        <TextBox x:Name="uxQty" Grid.Column="1" Grid.Row="5"></TextBox>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right">
+        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Notes:</TextBlock>
+        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="6" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right">
             <Button x:Name="uxSubmit"  MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Add</Button>
             <Button x:Name="uxCancel"  MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click" Margin="10">Cancel</Button>
         </StackPanel>

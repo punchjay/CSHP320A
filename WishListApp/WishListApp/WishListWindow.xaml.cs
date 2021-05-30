@@ -23,10 +23,10 @@ namespace WishListApp
 
             WishList.Brand = uxBrand.Text;
             WishList.Description = uxDescription.Text;
-            //WishList.Price = uxPrice.Text;
-            //WishList.Sku = uxSku.Text;
-            //WishList.InStock = uxInstock.Text;
-            //WishList.Qty = uxQty.Text;
+            WishList.Price = decimal.Parse(uxPrice.Text);
+            WishList.Sku = int.Parse(uxSku.Text);
+            WishList.InStock = bool.Parse(uxInstock.Text);
+            WishList.Qty = int.Parse(uxQty.Text);
             WishList.Notes = uxNotes.Text;
             WishList.CreatedDate = DateTime.Now;
 
@@ -37,7 +37,6 @@ namespace WishListApp
 
         private void uxCancel_Click(object sender, RoutedEventArgs e)
         {
-            // This is the return value of ShowDialog( ) below
             DialogResult = false;
             Close();
         }
