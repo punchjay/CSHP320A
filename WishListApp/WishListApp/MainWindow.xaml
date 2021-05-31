@@ -45,13 +45,13 @@
                         </GridViewColumn.Header>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Price}" Width="50">
+                    <GridViewColumn DisplayMemberBinding="{Binding Price, StringFormat={}{0:C0}.00}" Width="70">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Price" Tag="Price" Click="GridViewColumnHeader_Click" />
                         </GridViewColumn.Header>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Sku}" Width="50">
+                    <GridViewColumn DisplayMemberBinding="{Binding Sku}" Width="45">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Sku" Tag="Sku" Click="GridViewColumnHeader_Click" />
                         </GridViewColumn.Header>
@@ -63,7 +63,7 @@
                         </GridViewColumn.Header>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Qty}" Width="50">
+                    <GridViewColumn DisplayMemberBinding="{Binding Qty}" Width="45">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Qty" Tag="Qty" Click="GridViewColumnHeader_Click" />
                         </GridViewColumn.Header>

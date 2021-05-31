@@ -40,6 +40,20 @@ namespace WishListApp
             DialogResult = false;
             Close();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (WishList != null)
+            {
+                uxSubmit.Content = "Update";
+            }
+            else
+            {
+                WishList = new WishListModel();
+                WishList.CreatedDate = DateTime.Now;
+            }
+            uxGrid.DataContext = WishList;
+        }
     }
 }
 

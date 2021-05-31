@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WishListApp"
         mc:Ignorable="d"
-        Title="WishListWindow" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=uxName}">
+        Title="WishListWindow" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=uxName}" Loaded="Window_Loaded">
 
     <Grid x:Name="uxGrid">
         <Grid.ColumnDefinitions>
@@ -24,25 +24,25 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Brand:</TextBlock>
-        <TextBox x:Name="uxBrand" Grid.Column="1" Grid.Row="0"></TextBox>
+        <TextBox x:Name="uxBrand" Grid.Column="1" Grid.Row="0" Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Description:</TextBlock>
-        <TextBox x:Name="uxDescription" Grid.Column="1" Grid.Row="1"></TextBox>
+        <TextBox x:Name="uxDescription" Grid.Column="1" Grid.Row="1" Text="{Binding Description}"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Price:</TextBlock>
-        <TextBox x:Name="uxPrice" Grid.Column="1" Grid.Row="2"></TextBox>
+        <TextBox x:Name="uxPrice" Grid.Column="1" Grid.Row="2" Text="{Binding Price, StringFormat={}{0:C0}.00}"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Sku:</TextBlock>
-        <TextBox x:Name="uxSku" Grid.Column="1" Grid.Row="3"></TextBox>
+        <TextBox x:Name="uxSku" Grid.Column="1" Grid.Row="3" Text="{Binding Sku}"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Instock:</TextBlock>
-        <TextBox x:Name="uxInstock" Grid.Column="1" Grid.Row="4"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">In stock:</TextBlock>
+        <TextBox x:Name="uxInstock" Grid.Column="1" Grid.Row="4" Text="{Binding InStock}"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Qty:</TextBlock>
-        <TextBox x:Name="uxQty" Grid.Column="1" Grid.Row="5"></TextBox>
+        <TextBox x:Name="uxQty" Grid.Column="1" Grid.Row="5" Text="{Binding Qty}"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Notes:</TextBlock>
-        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="6" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="6" AcceptsReturn="True" TextWrapping="Wrap" Height="60" Text="{Binding Notes}"></TextBox>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right">
             <Button x:Name="uxSubmit"  MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Add</Button>
