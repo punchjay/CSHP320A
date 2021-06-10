@@ -45,7 +45,7 @@
                         </GridViewColumn.Header>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Price, StringFormat={}{0:C0}.00}" Width="70">
+                    <GridViewColumn DisplayMemberBinding="{Binding Price}" Width="70">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Price" Tag="Price" Click="GridViewColumnHeader_Click" />
                         </GridViewColumn.Header>

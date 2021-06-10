@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WishListApp"
         mc:Ignorable="d"
-        Title="WishListWindow" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=uxName}" Loaded="Window_Loaded">
+        Title="WishListWindow" Height="400" Width="400" FocusManager.FocusedElement="{Binding ElementName=uxName}" Loaded="Window_Loaded">
 
-    <Grid x:Name="uxGrid">
+    <Grid x:Name="uxGrid" Margin="30,30,60,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="1*" />
@@ -23,30 +23,30 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Brand:</TextBlock>
-        <TextBox x:Name="uxBrand" Grid.Column="1" Grid.Row="0" Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Margin="0,0,15,0">Brand:</TextBlock>
+        <TextBox x:Name="uxBrand" Grid.Column="1" Grid.Row="0" Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Description:</TextBlock>
-        <TextBox x:Name="uxDescription" Grid.Column="1" Grid.Row="1" Text="{Binding Description}"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,15,0">Description:</TextBlock>
+        <TextBox x:Name="uxDescription" Grid.Column="1" Grid.Row="1" Text="{Binding Description}" Margin="0,0,0,10"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Price:</TextBlock>
-        <TextBox x:Name="uxPrice" Grid.Column="1" Grid.Row="2" Text="{Binding Price, StringFormat={}{0:C0}.00}"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,15,0">Price:</TextBlock>
+        <TextBox x:Name="uxPrice" Grid.Column="1" Grid.Row="2" Text="{Binding Price}" Margin="0,0,0,10"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Sku:</TextBlock>
-        <TextBox x:Name="uxSku" Grid.Column="1" Grid.Row="3" Text="{Binding Sku}"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,15,0">Sku:</TextBlock>
+        <TextBox x:Name="uxSku" Grid.Column="1" Grid.Row="3" Text="{Binding Sku}" Margin="0,0,0,10"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">In stock:</TextBlock>
-        <TextBox x:Name="uxInstock" Grid.Column="1" Grid.Row="4" Text="{Binding InStock}"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Margin="0,0,15,0">In stock:</TextBlock>
+        <TextBox x:Name="uxInstock" Grid.Column="1" Grid.Row="4" Text="{Binding InStock}" Margin="0,0,0,10"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Qty:</TextBlock>
-        <TextBox x:Name="uxQty" Grid.Column="1" Grid.Row="5" Text="{Binding Qty}"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" Margin="0,0,15,0">Qty:</TextBlock>
+        <TextBox x:Name="uxQty" Grid.Column="1" Grid.Row="5" Text="{Binding Qty}" Margin="0,0,0,10"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Notes:</TextBlock>
-        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="6" AcceptsReturn="True" TextWrapping="Wrap" Height="60" Text="{Binding Notes}"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right" Margin="0,0,15,0">Notes:</TextBlock>
+        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="6" AcceptsReturn="True" TextWrapping="Wrap" Height="60" Text="{Binding Notes}" Margin="0,0,0,10"></TextBox>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right">
-            <Button x:Name="uxSubmit"  MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Add</Button>
-            <Button x:Name="uxCancel"  MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click" Margin="10">Cancel</Button>
+            <Button x:Name="uxSubmit" Width="55" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="0,0,10,0" Background="{x:Null}" Cursor="Hand">Add</Button>
+            <Button x:Name="uxCancel" Width="55" HorizontalAlignment="Center" Click="uxCancel_Click" Background="{x:Null}" Cursor="Hand">Cancel</Button>
         </StackPanel>
     </Grid>
 </Window>
