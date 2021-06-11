@@ -25,7 +25,7 @@ namespace homework06.Controllers
             }
             else
             {
-                return View(cardResponse);
+                return View("Index", cardResponse);
             }
         }
     }

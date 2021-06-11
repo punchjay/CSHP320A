@@ -6,9 +6,9 @@ namespace homework06.Models
     {
         [Required(ErrorMessage = "Please enter your name")]
         public string From { get; set; }
-        //[Required(ErrorMessage = "Please enter your birthday person")]
+        [Required(ErrorMessage = "Please enter your birthday person")]
         public string To { get; set; }
-        //[Required(ErrorMessage = "Please enter your message")]
+        [Required(ErrorMessage = "Please enter your message")]
         public string Message { get; set; }
     }
 }
