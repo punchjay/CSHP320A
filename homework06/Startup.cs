@@ -25,6 +25,8 @@ namespace homework06
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles(); // Example css file
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

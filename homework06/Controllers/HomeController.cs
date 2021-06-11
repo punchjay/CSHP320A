@@ -21,7 +21,7 @@ namespace homework06.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View("Thanks", cardResponse);
+                return View("Sent", cardResponse);
             }
             else
             {

@@ -1,42 +1,45 @@
 ﻿@model homework06.Models.Card
-
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>RsvpForm</title>
+    <title>Birthday Card Generator</title>
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <h4>GuestResponse</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="BirthdayCardForm">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="From" class="control-label"></label>
-                    <input asp-for="From" class="form-control" />
-                    <span asp-validation-for="From" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="To" class="control-label"></label>
-                    <input asp-for="To" class="form-control" />
-                    <span asp-validation-for="To" class="text-danger"></span>
-                </div>
+    <div class="container">
+        <hr />
+        <h4>Birthday Card Generator</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="BirthdayCardForm">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="From" class="control-label"></label>
+                        <input asp-for="From" class="form-control" />
+                        <span asp-validation-for="From" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="To" class="control-label"></label>
+                        <input asp-for="To" class="form-control" />
+                        <span asp-validation-for="To" class="text-danger"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label asp-for="Message" class="control-label"></label>
-                    <input asp-for="Message" class="form-control" />
-                    <span asp-validation-for="Message" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Send Card" class="btn btn-default" />
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label asp-for="Message" class="control-label"></label>
+                        <input asp-for="Message" class="form-control" />
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Send Card" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>
