@@ -11,14 +11,13 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <hr />
+    <div class="container-fluid p-4">
         <h4>Birthday Card Generator</h4>
         <hr />
         <div class="row">
             <div class="col-md-4">
                 <form asp-action="BirthdayCardForm">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="From" class="control-label"></label>
                         <input asp-for="From" class="form-control" />
