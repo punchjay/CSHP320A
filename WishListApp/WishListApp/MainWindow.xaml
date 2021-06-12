@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WishListApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="490" Width="800">
     <StackPanel Orientation="Vertical">
         <Menu>
             <MenuItem Header="_File">
@@ -13,26 +14,22 @@
                 <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
                 <MenuItem x:Name="uxFileChange" Header="_Modify" Click="uxFileChange_Click" 
   Loaded="uxFileChange_Loaded" />
-
             </MenuItem>
         </Menu>
-        <!--Exercise 1 for update use double click to have WishList Window to pop-->
-        <ListView x:Name="uxWishListList" Height="415" 
+        
+        <ListView x:Name="uxWishListList" Height="410" 
                   SelectionChanged="uxWishListList_SelectionChanged" 
-                  MouseDoubleClick="uxWishListList_MouseDoubleClick">
-            <!---->
+                  MouseDoubleClick="uxWishListList_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="uxContextFileNew" Header="_New" Click="uxFileNew_Click"/>
                     <MenuItem x:Name="uxContextFileChange" Header="_Modify" Click="uxFileChange_Click" />
-                    <!--Exercise 1: Delete - start with menu being disabled as it loads up-->
                     <MenuItem x:Name="uxContextFileDelete" IsEnabled="False" Header="_Delete" Click="uxFileDelete_Click" />
                 </ContextMenu>
             </ListView.ContextMenu>
 
             <ListView.View>
                 <GridView>
-
                     <GridViewColumn DisplayMemberBinding="{Binding Brand}" Width="100">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Brand" Tag="Brand" Click="GridViewColumnHeader_Click" />
@@ -76,9 +73,15 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
-
         </ListView>
-
+        
+        <DockPanel>
+            <StatusBar DockPanel.Dock="Bottom">
+                <StatusBarItem>
+                    <TextBlock x:Name="uxStatus"></TextBlock>
+                </StatusBarItem>
+            </StatusBar>
+        </DockPanel>
     </StackPanel>
 </Window>
 

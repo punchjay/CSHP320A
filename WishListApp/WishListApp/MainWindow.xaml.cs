@@ -20,6 +20,7 @@ namespace WishListApp
         {
             InitializeComponent();
             LoadWishLists();
+
         }
 
         private void LoadWishLists()
@@ -41,6 +42,7 @@ namespace WishListApp
             //}
 
             //uxWishListList.ItemsSource = uiWishListModelList;
+            uxStatus.Text = $"You have {wishList.Count()} items in your wish list";
         }
 
         // add this method for doing updates
@@ -132,5 +134,6 @@ namespace WishListApp
             uxFileChange_Click(sender, null);
 
         }
+
     }
 }

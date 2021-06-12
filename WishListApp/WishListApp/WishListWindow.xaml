@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WishListApp"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="WishListWindow" Height="400" Width="400" FocusManager.FocusedElement="{Binding ElementName=uxName}" Loaded="Window_Loaded">
 
     <Grid x:Name="uxGrid" Margin="30,30,60,0">
