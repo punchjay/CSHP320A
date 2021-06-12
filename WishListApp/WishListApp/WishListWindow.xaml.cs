@@ -12,7 +12,7 @@ namespace WishListApp
         public WishListWindow()
         {
             InitializeComponent();
-            ShowInTaskbar = false;
+            ShowInTaskbar = true;
         }
 
         public WishListModel WishList { get; set; }

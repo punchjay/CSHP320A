@@ -53,7 +53,7 @@
         // so both objects do not point to the same data
         internal WishListModel Clone()
         {
-            return (WishListModel)this.MemberwiseClone();
+            return (WishListModel)MemberwiseClone();
         }
     }
 }

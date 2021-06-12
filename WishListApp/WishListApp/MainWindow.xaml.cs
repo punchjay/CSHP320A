@@ -12,8 +12,8 @@ namespace WishListApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GridViewColumnHeader listViewSortCol = null;
-        private SortAdorner listViewSortAdorner = null;
+        private GridViewColumnHeader listViewSortCol;
+        private SortAdorner listViewSortAdorner;
         private WishListModel selectedWishList;
 
         public MainWindow()
@@ -47,7 +47,6 @@ namespace WishListApp
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
         {
             var window = new WishListWindow();
-
             // Exercise 2 for update - fix this to call on Clone()
             window.WishList = selectedWishList.Clone();
 
