@@ -14,6 +14,7 @@
                 <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
                 <MenuItem x:Name="uxFileChange" Header="_Modify" Click="uxFileChange_Click" 
   Loaded="uxFileChange_Loaded" />
+                <MenuItem x:Name="uxFileQuit" Header="_Quit" Click="uxFileQuit_Click"></MenuItem>
             </MenuItem>
         </Menu>
         

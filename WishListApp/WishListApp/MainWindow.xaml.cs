@@ -124,6 +124,11 @@ namespace WishListApp
             uxFileDelete.IsEnabled = (selectedWishList != null);
         }
 
+        private void uxFileQuit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
+        }
+
         // Exercise 1 - Update double-clicking on a contact will bring up the update WishList window
         private void uxWishListList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -135,5 +140,6 @@ namespace WishListApp
         {
 
         }
+
     }
 }
