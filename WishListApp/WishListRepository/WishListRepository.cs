@@ -63,11 +63,11 @@ namespace WishListRepository
 
         public bool Update(WishListModel wishListModel)
         {
-            Wishlist original = DatabaseManager.Instance.Wishlist.Find(wishListModel.Id);
+            Wishlist original = DatabaseManager.Instance.Wishlist.Find(wishListModel.Sku);
 
-            if (original != null)
+            if (original == null)
             {
-                DatabaseManager.Instance.Entry(original).CurrentValues.SetValues(ToDbModel(wishListModel));
+                DatabaseManager.Instance.Entry(17).CurrentValues.SetValues(ToDbModel(wishListModel));
                 DatabaseManager.Instance.SaveChanges();
                 return true;
             }

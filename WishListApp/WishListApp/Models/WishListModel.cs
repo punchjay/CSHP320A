@@ -1,6 +1,8 @@
-﻿namespace WishListApp.Models
+﻿using System.ComponentModel;
+
+namespace WishListApp.Models
 {
-    public class WishListModel
+    public class WishListModel : IDataErrorInfo, INotifyPropertyChanged
     {
         public int Id { get; set; }
         public string Brand { get; set; }
@@ -11,6 +13,62 @@
         public int Qty { get; set; }
         public string Notes { get; set; }
         public System.DateTime CreatedDate { get; set; }
+
+        private string brandError { get; set; }
+
+        // INotifyPropertyChanged interface
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // IDataErrorInfo interface
+        public string Error => "Never Used";
+
+        public string this[string columnName]
+        {
+            get
+            {
+                switch (columnName)
+                {
+                    case "Brand":
+                        {
+                            BrandError = "";
+
+                            if (Brand == null || string.IsNullOrEmpty(Brand))
+                            {
+                                BrandError = "Name cannot be empty.";
+                            }
+                            else if (Brand.Length > 12)
+                            {
+                                BrandError = "Name cannot be longer than 12 characters.";
+                            }
+
+                            return BrandError;
+                        }
+                }
+
+                return null;
+            }
+        }
+
+        public string BrandError
+        {
+            get
+            {
+                return brandError;
+            }
+            set
+            {
+                if (brandError != value)
+                {
+                    brandError = value;
+                    OnPropertyChanged("BrandError");
+                }
+            }
+        }
 
         public WishListRepository.WishListModel ToRepositoryModel()
         {
