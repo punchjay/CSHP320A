@@ -21,7 +21,7 @@ namespace WishListRepository
     {
         public WishListModel Add(WishListModel wishListModel)
         {
-            var wishListDb = ToDbModel(wishListModel);
+            Wishlist wishListDb = ToDbModel(wishListModel);
 
             DatabaseManager.Instance.Wishlist.Add(wishListDb);
             DatabaseManager.Instance.SaveChanges();
@@ -44,7 +44,7 @@ namespace WishListRepository
         public List<WishListModel> GetAll()
         {
             // Use .Select() to map the database wishLists to WishListModel
-            var items = DatabaseManager.Instance.Wishlist
+            List<WishListModel> items = DatabaseManager.Instance.Wishlist
               .Select(t => new WishListModel
               {
                   Brand = t.WishListBrand,
@@ -63,7 +63,7 @@ namespace WishListRepository
 
         public bool Update(WishListModel wishListModel)
         {
-            var original = DatabaseManager.Instance.Wishlist.Find(wishListModel.Id);
+            Wishlist original = DatabaseManager.Instance.Wishlist.Find(wishListModel.Id);
 
             if (original != null)
             {
@@ -77,7 +77,7 @@ namespace WishListRepository
 
         public bool Remove(int wishListId)
         {
-            var items = DatabaseManager.Instance.Wishlist
+            IQueryable<Wishlist> items = DatabaseManager.Instance.Wishlist
                                 .Where(t => t.WishListId == wishListId);
 
             if (items.Count() == 0)
@@ -93,7 +93,7 @@ namespace WishListRepository
 
         private Wishlist ToDbModel(WishListModel wishListModel)
         {
-            var wishListDb = new Wishlist
+            Wishlist wishListDb = new Wishlist
             {
                 WishListBrand = wishListModel.Brand,
                 WishListCreatedDate = wishListModel.CreatedDate,

@@ -20,7 +20,6 @@ namespace WishListApp
         {
             InitializeComponent();
             LoadWishLists();
-
         }
 
         private void LoadWishLists()
@@ -42,7 +41,7 @@ namespace WishListApp
             //}
 
             //uxWishListList.ItemsSource = uiWishListModelList;
-            uxStatus.Text = $"You have {wishList.Count()} items in your wish list";
+            uxStatus.Text = $"You currently have {wishList.Count()} items in your Wish List";
         }
 
         // add this method for doing updates
@@ -84,7 +83,6 @@ namespace WishListApp
             }
         }
 
-
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
             GridViewColumnHeader column = (sender as GridViewColumnHeader);
@@ -112,7 +110,6 @@ namespace WishListApp
 
             // Exercise 1 under Delete - fix the context menu
             uxContextFileDelete.IsEnabled = (selectedWishList != null);
-
         }
 
         private void uxFileDelete_Click(object sender, RoutedEventArgs e)
@@ -132,8 +129,11 @@ namespace WishListApp
         {
             // call on this FileChange Click function with two null parameters
             uxFileChange_Click(sender, null);
-
         }
 
+        private void uxSearchBt_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

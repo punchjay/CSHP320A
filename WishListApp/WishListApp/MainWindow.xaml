@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WishListApp"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="490" Width="800">
+        Title="MainWindow" Height="495" Width="800">
     <StackPanel Orientation="Vertical">
         <Menu>
             <MenuItem Header="_File">
@@ -30,6 +30,12 @@
 
             <ListView.View>
                 <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Width="25">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Id" Tag="Id" Click="GridViewColumnHeader_Click" />
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    
                     <GridViewColumn DisplayMemberBinding="{Binding Brand}" Width="100">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Brand" Tag="Brand" Click="GridViewColumnHeader_Click" />
@@ -77,7 +83,16 @@
         
         <DockPanel>
             <StatusBar DockPanel.Dock="Bottom">
+                <StatusBarItem Margin="5,0,0,0">
+                    <TextBlock>Search by Sku number</TextBlock>
+                </StatusBarItem>
                 <StatusBarItem>
+                    <TextBox x:Name="uxSearchBox" Text="{Binding Sku, UpdateSourceTrigger=PropertyChanged}" Width="50" Height="20"></TextBox>
+                </StatusBarItem>
+                <StatusBarItem>
+                    <Button x:Name="uxSearchBt" Click="uxSearchBt_Click" Width="55" HorizontalAlignment="Center" Cursor="Hand" Background="#FFFFFFFF">Search</Button>
+                </StatusBarItem>
+                <StatusBarItem HorizontalAlignment="Right" Margin="0,0,5,0">
                     <TextBlock x:Name="uxStatus"></TextBlock>
                 </StatusBarItem>
             </StatusBar>
