@@ -15,6 +15,7 @@ namespace WishListApp.Models
         public System.DateTime CreatedDate { get; set; }
 
         private string brandError { get; set; }
+        private string descriptionError { get; set; }
 
         // INotifyPropertyChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
@@ -48,8 +49,22 @@ namespace WishListApp.Models
 
                             return BrandError;
                         }
-                }
+                    case "Description":
+                        {
+                            DescriptionError = "";
 
+                            if (Description == null || string.IsNullOrEmpty(Description))
+                            {
+                                DescriptionError = "Description cannot be empty.";
+                            }
+                            else if (Description.Length > 50)
+                            {
+                                DescriptionError = "Description cannot be longer than 50 characters.";
+                            }
+
+                            return DescriptionError;
+                        }
+                }
                 return null;
             }
         }
@@ -66,6 +81,22 @@ namespace WishListApp.Models
                 {
                     brandError = value;
                     OnPropertyChanged("BrandError");
+                }
+            }
+        }
+
+        public string DescriptionError
+        {
+            get
+            {
+                return descriptionError;
+            }
+            set
+            {
+                if (descriptionError != value)
+                {
+                    descriptionError = value;
+                    OnPropertyChanged("DescriptionError");
                 }
             }
         }
