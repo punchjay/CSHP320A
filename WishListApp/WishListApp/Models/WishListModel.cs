@@ -8,7 +8,7 @@ namespace WishListApp.Models
         public string Brand { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public int Sku { get; set; }
+        public string Sku { get; set; }
         public bool InStock { get; set; }
         public int Qty { get; set; }
         public string Notes { get; set; }
@@ -16,6 +16,7 @@ namespace WishListApp.Models
 
         private string brandError { get; set; }
         private string descriptionError { get; set; }
+        private string skuError { get; set; }
 
         // INotifyPropertyChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
@@ -64,6 +65,25 @@ namespace WishListApp.Models
 
                             return DescriptionError;
                         }
+                    case "Sku":
+                        {
+                            SkuError = "";
+
+                            if (Sku == null || string.IsNullOrEmpty(Sku))
+                            {
+                                SkuError = "Sku number cannot be empty.";
+                            }
+                            else if (Sku.Length < 4)
+                            {
+                                SkuError = "Sku number cannot be less than 4 numbers.";
+                            }
+                            else if (Sku.Length > 4)
+                            {
+                                SkuError = "Sku number cannot be longer than 4 numbers.";
+                            }
+
+                            return SkuError;
+                        }
                 }
                 return null;
             }
@@ -97,6 +117,22 @@ namespace WishListApp.Models
                 {
                     descriptionError = value;
                     OnPropertyChanged("DescriptionError");
+                }
+            }
+        }
+
+        public string SkuError
+        {
+            get
+            {
+                return skuError;
+            }
+            set
+            {
+                if (skuError != value)
+                {
+                    skuError = value;
+                    OnPropertyChanged("SkuError");
                 }
             }
         }

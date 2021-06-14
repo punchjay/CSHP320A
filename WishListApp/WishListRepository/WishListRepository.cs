@@ -10,7 +10,7 @@ namespace WishListRepository
         public string Brand { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public int Sku { get; set; }
+        public string Sku { get; set; }
         public bool InStock { get; set; }
         public int Qty { get; set; }
         public string Notes { get; set; }
@@ -63,9 +63,9 @@ namespace WishListRepository
 
         public bool Update(WishListModel wishListModel)
         {
-            Wishlist original = DatabaseManager.Instance.Wishlist.Find(wishListModel.Sku);
+            Wishlist original = DatabaseManager.Instance.Wishlist.Find(wishListModel.Id);
 
-            if (original == null)
+            if (original != null)
             {
                 DatabaseManager.Instance.Entry(17).CurrentValues.SetValues(ToDbModel(wishListModel));
                 DatabaseManager.Instance.SaveChanges();

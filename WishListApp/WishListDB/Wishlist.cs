@@ -8,7 +8,7 @@ namespace WishListDB
         public string WishListBrand { get; set; }
         public string WishListDescription { get; set; }
         public decimal WishListPrice { get; set; }
-        public int WishListSku { get; set; }
+        public string WishListSku { get; set; }
         public bool WishListInStock { get; set; }
         public int WishListQty { get; set; }
         public string WishListNotes { get; set; }

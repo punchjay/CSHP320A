@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Input;
 using WishListApp.Models;
 
 namespace WishListApp
@@ -24,7 +26,7 @@ namespace WishListApp
             WishList.Brand = uxBrand.Text;
             WishList.Description = uxDescription.Text;
             WishList.Price = decimal.Parse(uxPrice.Text);
-            WishList.Sku = int.Parse(uxSku.Text);
+            WishList.Sku = uxSku.Text;
             WishList.InStock = bool.Parse(uxInstock.Text);
             WishList.Qty = int.Parse(uxQty.Text);
             WishList.Notes = uxNotes.Text;
@@ -53,6 +55,12 @@ namespace WishListApp
                 WishList.CreatedDate = DateTime.Now;
             }
             uxGrid.DataContext = WishList;
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

@@ -36,7 +36,9 @@
         <TextBox x:Name="uxPrice" Grid.Column="1" Grid.Row="2" Text="{Binding Price}" Margin="0,0,0,30"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,15,0">Sku:</TextBlock>
-        <TextBox x:Name="uxSku" Grid.Column="1" Grid.Row="3" Text="{Binding Sku}" Margin="0,0,0,30"></TextBox>
+        <TextBox x:Name="uxSku" Grid.Column="1" Grid.Row="3" Text="{Binding Sku, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="0,0,0,35" Height="18" MaxLength="4"  PreviewTextInput="NumberValidationTextBox">
+        </TextBox>
+        <TextBlock x:Name="uxSkuError" Grid.Column="1" Grid.Row="3" Text="{Binding SkuError, UpdateSourceTrigger=PropertyChanged}" Margin="0,20,0,0" Padding="0,0,0,5" Foreground="#FFDE1919"></TextBlock>
 
         <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Margin="0,0,15,0">In stock:</TextBlock>
         <TextBox x:Name="uxInstock" Grid.Column="1" Grid.Row="4" Text="{Binding InStock}" Margin="0,0,0,30"></TextBox>
