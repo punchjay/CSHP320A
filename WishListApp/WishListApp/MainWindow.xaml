@@ -88,7 +88,7 @@
                     <TextBlock>Search by Sku number</TextBlock>
                 </StatusBarItem>
                 <StatusBarItem>
-                    <TextBox x:Name="uxSearchBox" Text="{Binding Sku, UpdateSourceTrigger=PropertyChanged}" Width="50" Height="20"></TextBox>
+                    <TextBox x:Name="uxSearchBox" Text="{Binding Sku, UpdateSourceTrigger=PropertyChanged}" Width="50" Height="20" MaxLength="4" PreviewTextInput="NumberValidationTextBox"></TextBox>
                 </StatusBarItem>
                 <StatusBarItem>
                     <Button x:Name="uxSearchBt" Click="uxSearchBt_Click" Width="55" HorizontalAlignment="Center" Cursor="Hand" Background="#FFFFFFFF">Search</Button>

@@ -38,7 +38,6 @@ namespace WishListApp.Models
                     case "Brand":
                         {
                             BrandError = "";
-
                             if (Brand == null || string.IsNullOrEmpty(Brand))
                             {
                                 BrandError = "Name cannot be empty.";
@@ -47,13 +46,11 @@ namespace WishListApp.Models
                             {
                                 BrandError = "Name cannot be longer than 12 characters.";
                             }
-
                             return BrandError;
                         }
                     case "Description":
                         {
                             DescriptionError = "";
-
                             if (Description == null || string.IsNullOrEmpty(Description))
                             {
                                 DescriptionError = "Description cannot be empty.";
@@ -62,13 +59,11 @@ namespace WishListApp.Models
                             {
                                 DescriptionError = "Description cannot be longer than 50 characters.";
                             }
-
                             return DescriptionError;
                         }
                     case "Sku":
                         {
                             SkuError = "";
-
                             if (Sku == null || string.IsNullOrEmpty(Sku))
                             {
                                 SkuError = "Sku number cannot be empty.";
@@ -81,7 +76,6 @@ namespace WishListApp.Models
                             {
                                 SkuError = "Sku number cannot be longer than 4 numbers.";
                             }
-
                             return SkuError;
                         }
                 }
@@ -132,7 +126,7 @@ namespace WishListApp.Models
                 if (skuError != value)
                 {
                     skuError = value;
-                    OnPropertyChanged("SkuError");
+                    OnPropertyChanged(nameof(SkuError));
                 }
             }
         }
@@ -151,7 +145,6 @@ namespace WishListApp.Models
                 Qty = Qty,
                 Sku = Sku
             };
-
             return repositoryModel;
         }
 
@@ -169,7 +162,6 @@ namespace WishListApp.Models
                 Qty = respositoryModel.Qty,
                 Sku = respositoryModel.Sku
             };
-
             return wishListModel;
         }
 

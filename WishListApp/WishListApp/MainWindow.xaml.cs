@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
 using WishListApp.Models;
 
 namespace WishListApp
@@ -134,6 +136,12 @@ namespace WishListApp
         {
             // call on this FileChange Click function with two null parameters
             uxFileChange_Click(sender, null);
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void uxSearchBt_Click(object sender, RoutedEventArgs e)
