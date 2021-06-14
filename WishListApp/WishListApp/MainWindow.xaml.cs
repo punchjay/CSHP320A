@@ -33,17 +33,6 @@ namespace WishListApp
                 .Select(t => WishListModel.ToModel(t))
                 .ToList();
 
-            // OR
-            //var uiWishListModelList = new List<WishListModel>();
-            //foreach (var repositoryWishListModel in wishList)
-            //{
-            //    This is the .Select(t => ... )
-            //    var uiWishListModel = WishListModel.ToModel(repositoryWishListModel);
-            //
-            //    uiWishListModelList.Add(uiWishListModel);
-            //}
-
-            //uxWishListList.ItemsSource = uiWishListModelList;
             uxStatus.Text = $"You currently have {WishList.Count()} items in your Wish List";
         }
 
@@ -74,13 +63,9 @@ namespace WishListApp
             if (window.ShowDialog() == true)
             {
                 var uiWishListModel = window.WishList;
-
                 var repositoryWishListModel = uiWishListModel.ToRepositoryModel();
 
                 App.WishListRepository.Add(repositoryWishListModel);
-
-                // OR
-                //App.WishListRepository.Add(window.WishList.ToRepositoryModel());
 
                 LoadWishLists();
             }
@@ -132,8 +117,7 @@ namespace WishListApp
             Application.Current.MainWindow.Close();
         }
 
-        // Exercise 1 - Update double-clicking on a contact will bring up the update WishList window
-        private void uxWishListList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void uxWishListList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             // call on this FileChange Click function with two null parameters
             uxFileChange_Click(sender, null);
@@ -141,7 +125,7 @@ namespace WishListApp
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
+            Regex regex = new("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
@@ -163,7 +147,7 @@ namespace WishListApp
         private void uxClearBt_Click(object sender, RoutedEventArgs e)
         {
             LoadWishLists();
-            uxSearchBt.IsEnabled = false;
+            uxSearchBt.IsEnabled = true;
             uxClearBt.IsEnabled = false;
         }
     }
