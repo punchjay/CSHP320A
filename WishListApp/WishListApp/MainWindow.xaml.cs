@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using WishListApp.Models;
+using System.Collections.Generic;
 
 namespace WishListApp
 {
@@ -17,7 +18,7 @@ namespace WishListApp
         private GridViewColumnHeader listViewSortCol;
         private SortAdorner listViewSortAdorner;
         private WishListModel selectedWishList;
-
+        private List<WishListRepository.WishListModel> WishList;
         public MainWindow()
         {
             InitializeComponent();
@@ -26,9 +27,9 @@ namespace WishListApp
 
         private void LoadWishLists()
         {
-            var wishList = App.WishListRepository.GetAll();
+            WishList = App.WishListRepository.GetAll();
 
-            uxWishListList.ItemsSource = wishList
+            uxWishListList.ItemsSource = WishList
                 .Select(t => WishListModel.ToModel(t))
                 .ToList();
 
@@ -43,7 +44,7 @@ namespace WishListApp
             //}
 
             //uxWishListList.ItemsSource = uiWishListModelList;
-            uxStatus.Text = $"You currently have {wishList.Count()} items in your Wish List";
+            uxStatus.Text = $"You currently have {WishList.Count()} items in your Wish List";
         }
 
         // add this method for doing updates
@@ -146,8 +147,24 @@ namespace WishListApp
 
         private void uxSearchBt_Click(object sender, RoutedEventArgs e)
         {
+            WishList = App.WishListRepository.GetAll();
 
+            var SkuSearch = from w in WishList
+                            where w.Sku == uxSearchBox.Text
+                            select w;
+
+            uxWishListList.ItemsSource = SkuSearch
+                .Select(t => WishListModel.ToModel(t))
+                .ToList();
+
+            uxClearBt.IsEnabled = true;
         }
 
+        private void uxClearBt_Click(object sender, RoutedEventArgs e)
+        {
+            LoadWishLists();
+            uxSearchBt.IsEnabled = false;
+            uxClearBt.IsEnabled = false;
+        }
     }
 }

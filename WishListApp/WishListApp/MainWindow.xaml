@@ -93,6 +93,9 @@
                 <StatusBarItem>
                     <Button x:Name="uxSearchBt" Click="uxSearchBt_Click" Width="55" HorizontalAlignment="Center" Cursor="Hand" Background="#FFFFFFFF">Search</Button>
                 </StatusBarItem>
+                <StatusBarItem>
+                    <Button x:Name="uxClearBt" Click="uxClearBt_Click" Width="85" HorizontalAlignment="Center" Cursor="Hand" Background="#FFFFFFFF" IsEnabled="False">Clear Search</Button>
+                </StatusBarItem>
                 <StatusBarItem HorizontalAlignment="Right" Margin="0,0,5,0">
                     <TextBlock x:Name="uxStatus"></TextBlock>
                 </StatusBarItem>
