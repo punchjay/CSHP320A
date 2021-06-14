@@ -123,10 +123,14 @@ namespace WishListApp
             uxFileChange_Click(sender, null);
         }
 
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        private void uxSearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             Regex regex = new("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
+            bool isRegexMatch = regex.IsMatch(uxSearchBox.Text);
+            if (!isRegexMatch && uxSearchBox.Text.Length == 4)
+            {
+                uxSearchBt.IsEnabled = true;
+            }
         }
 
         private void uxSearchBt_Click(object sender, RoutedEventArgs e)
