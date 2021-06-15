@@ -133,16 +133,14 @@ namespace WishListApp
             {
                 WishList = App.WishListRepository.GetAll();
 
-                var SkuSearch = from w in WishList
-                                where w.Sku == uxSearchBox.Text
-                                select w;
+                IEnumerable<WishListRepository.WishListModel> SkuSearch =
+                    from w in WishList
+                    where w.Sku == uxSearchBox.Text
+                    select w;
 
                 uxWishListList.ItemsSource = SkuSearch
                     .Select(t => WishListModel.ToModel(t))
                     .ToList();
-
-                //uxClearBt.IsEnabled = true;
-                //uxSearchBt.IsEnabled = true;
             }
             else
             {
@@ -150,26 +148,5 @@ namespace WishListApp
             }
         }
 
-        //private void uxSearchBt_Click(object sender, RoutedEventArgs e)
-        //{
-        //    WishList = App.WishListRepository.GetAll();
-
-        //    var SkuSearch = from w in WishList
-        //                    where w.Sku == uxSearchBox.Text
-        //                    select w;
-
-        //    uxWishListList.ItemsSource = SkuSearch
-        //        .Select(t => WishListModel.ToModel(t))
-        //        .ToList();
-
-        //    uxClearBt.IsEnabled = true;
-        //}
-
-        //private void uxClearBt_Click(object sender, RoutedEventArgs e)
-        //{
-        //    LoadWishLists();
-        //    uxSearchBt.IsEnabled = true;
-        //    uxClearBt.IsEnabled = false;
-        //}
     }
 }
