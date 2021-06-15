@@ -133,7 +133,7 @@ namespace WishListApp.Models
 
         public WishListRepository.WishListModel ToRepositoryModel()
         {
-            var repositoryModel = new WishListRepository.WishListModel
+            WishListRepository.WishListModel repositoryModel = new()
             {
                 Brand = Brand,
                 CreatedDate = CreatedDate,
@@ -150,7 +150,7 @@ namespace WishListApp.Models
 
         public static WishListModel ToModel(WishListRepository.WishListModel respositoryModel)
         {
-            var wishListModel = new WishListModel
+            WishListModel wishListModel = new WishListModel
             {
                 Brand = respositoryModel.Brand,
                 CreatedDate = respositoryModel.CreatedDate,
