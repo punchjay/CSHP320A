@@ -10,22 +10,22 @@
     <StackPanel Orientation="Vertical">
         <Menu>
             <MenuItem Header="_File">
-                <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click"/>
-                <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
-                <MenuItem x:Name="uxFileChange" Header="_Modify" Click="uxFileChange_Click" 
-  Loaded="uxFileChange_Loaded" />
-                <MenuItem x:Name="uxFileQuit" Header="_Quit" Click="uxFileQuit_Click"></MenuItem>
+                <MenuItem x:Name="UxFileNew" Header="_New" Click="UxFileNew_Click"/>
+                <MenuItem x:Name="UxFileDelete" Header="_Delete" Click="UxFileDelete_Click" Loaded="UxFileDelete_Loaded" />
+                <MenuItem x:Name="UxFileChange" Header="_Modify" Click="UxFileChange_Click" 
+  Loaded="UxFileChange_Loaded" />
+                <MenuItem x:Name="UxFileQuit" Header="_Quit" Click="UxFileQuit_Click"></MenuItem>
             </MenuItem>
         </Menu>
         
-        <ListView x:Name="uxWishListList" Height="410" 
-                  SelectionChanged="uxWishListList_SelectionChanged" 
-                  MouseDoubleClick="uxWishListList_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView x:Name="UxWishListList" Height="410" 
+                  SelectionChanged="UxWishListList_SelectionChanged" 
+                  MouseDoubleClick="UxWishListList_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="uxContextFileNew" Header="_New" Click="uxFileNew_Click"/>
-                    <MenuItem x:Name="uxContextFileChange" Header="_Modify" Click="uxFileChange_Click" />
-                    <MenuItem x:Name="uxContextFileDelete" IsEnabled="False" Header="_Delete" Click="uxFileDelete_Click" />
+                    <MenuItem x:Name="UxContextFileNew" Header="_New" Click="UxFileNew_Click"/>
+                    <MenuItem x:Name="UxContextFileChange" Header="_Modify" Click="UxFileChange_Click" />
+                    <MenuItem x:Name="UxContextFileDelete" IsEnabled="False" Header="_Delete" Click="UxFileDelete_Click" />
                 </ContextMenu>
             </ListView.ContextMenu>
 
@@ -88,16 +88,10 @@
                     <TextBlock>Search by Sku number</TextBlock>
                 </StatusBarItem>
                 <StatusBarItem>
-                    <TextBox x:Name="uxSearchBox" Width="50" Height="20" MaxLength="4" TextChanged="uxSearchBox_TextChanged"></TextBox>
+                    <TextBox x:Name="UxSearchBox" Width="50" Height="20" MaxLength="4" TextChanged="UxSearchBox_TextChanged"></TextBox>
                 </StatusBarItem>
-                <!--<StatusBarItem>
-                    <Button x:Name="uxSearchBt" Click="uxSearchBt_Click" Width="55" HorizontalAlignment="Center" Cursor="Hand" Background="#FFFFFFFF" IsEnabled="False">Search</Button>
-                </StatusBarItem>
-                <StatusBarItem>
-                    <Button x:Name="uxClearBt" Click="uxClearBt_Click" Width="85" HorizontalAlignment="Center" Cursor="Hand" Background="#FFFFFFFF" IsEnabled="False">Clear Search</Button>
-                </StatusBarItem>-->
                 <StatusBarItem HorizontalAlignment="Right" Margin="0,0,5,0">
-                    <TextBlock x:Name="uxStatus"></TextBlock>
+                    <TextBlock x:Name="UxStatus"></TextBlock>
                 </StatusBarItem>
             </StatusBar>
         </DockPanel>

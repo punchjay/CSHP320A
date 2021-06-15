@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -6,7 +7,6 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using WishListApp.Models;
-using System.Collections.Generic;
 
 namespace WishListApp
 {
@@ -19,6 +19,7 @@ namespace WishListApp
         private SortAdorner listViewSortAdorner;
         private WishListModel selectedWishList;
         private List<WishListRepository.WishListModel> WishList;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,17 +30,17 @@ namespace WishListApp
         {
             WishList = App.WishListRepository.GetAll();
 
-            uxWishListList.ItemsSource = WishList
+            UxWishListList.ItemsSource = WishList
                 .Select(t => WishListModel.ToModel(t))
                 .ToList();
 
-            uxStatus.Text = $"You currently have {WishList.Count()} items in your Wish List";
+            UxStatus.Text = $"You currently have {WishList.Count} items in your Wish List";
         }
 
         // add this method for doing updates
-        private void uxFileChange_Click(object sender, RoutedEventArgs e)
+        private void UxFileChange_Click(object sender, RoutedEventArgs e)
         {
-            var window = new WishListWindow();
+            WishListWindow window = new WishListWindow();
             // Exercise 2 for update - fix this to call on Clone()
             window.WishList = selectedWishList.Clone();
 
@@ -50,83 +51,59 @@ namespace WishListApp
             }
         }
 
-        private void uxFileChange_Loaded(object sender, RoutedEventArgs e)
+        private void UxFileChange_Loaded(object sender, RoutedEventArgs e)
         {
-            uxFileChange.IsEnabled = (selectedWishList != null);
-            uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
+            UxFileChange.IsEnabled = selectedWishList != null;
+            UxContextFileChange.IsEnabled = UxFileChange.IsEnabled;
         }
 
-        private void uxFileNew_Click(object sender, RoutedEventArgs e)
+        private void UxFileNew_Click(object sender, RoutedEventArgs e)
         {
-            var window = new WishListWindow();
+            WishListWindow window = new WishListWindow();
 
             if (window.ShowDialog() == true)
             {
-                var uiWishListModel = window.WishList;
-                var repositoryWishListModel = uiWishListModel.ToRepositoryModel();
+                WishListModel uiWishListModel = window.WishList;
+                WishListRepository.WishListModel repositoryWishListModel = uiWishListModel.ToRepositoryModel();
 
                 App.WishListRepository.Add(repositoryWishListModel);
-
                 LoadWishLists();
             }
         }
 
-        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
-        {
-            GridViewColumnHeader column = (sender as GridViewColumnHeader);
-            string sortBy = column.Tag.ToString();
-            if (listViewSortCol != null)
-            {
-                AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
-                uxWishListList.Items.SortDescriptions.Clear();
-            }
-
-            ListSortDirection newDir = ListSortDirection.Ascending;
-            if (listViewSortCol == column && listViewSortAdorner.Direction == newDir)
-                newDir = ListSortDirection.Descending;
-
-            listViewSortCol = column;
-            listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
-            AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
-            uxWishListList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
-        }
-
         // Important Method: detect if selection has been made
-        private void uxWishListList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UxWishListList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedWishList = (WishListModel)uxWishListList.SelectedValue;
-
-            // Exercise 1 under Delete - fix the context menu
-            uxContextFileDelete.IsEnabled = (selectedWishList != null);
+            selectedWishList = (WishListModel)UxWishListList.SelectedValue;
+            UxContextFileDelete.IsEnabled = selectedWishList != null;
         }
 
-        private void uxFileDelete_Click(object sender, RoutedEventArgs e)
+        private void UxFileDelete_Click(object sender, RoutedEventArgs e)
         {
             App.WishListRepository.Remove(selectedWishList.Id);
             selectedWishList = null;
             LoadWishLists();
         }
 
-        private void uxFileDelete_Loaded(object sender, RoutedEventArgs e)
+        private void UxFileDelete_Loaded(object sender, RoutedEventArgs e)
         {
-            uxFileDelete.IsEnabled = (selectedWishList != null);
+            UxFileDelete.IsEnabled = selectedWishList != null;
         }
 
-        private void uxFileQuit_Click(object sender, RoutedEventArgs e)
+        private void UxFileQuit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Close();
         }
 
-        private void uxWishListList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void UxWishListList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            // call on this FileChange Click function with two null parameters
-            uxFileChange_Click(sender, null);
+            UxFileChange_Click(sender, null);
         }
 
-        private void uxSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void UxSearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             Regex regexNums = new("[^0-9]+");
-            string searchBox = uxSearchBox.Text;
+            string searchBox = UxSearchBox.Text;
             bool isRegexMatch = regexNums.IsMatch(searchBox);
 
             if (!isRegexMatch && searchBox.Length == 4)
@@ -135,10 +112,10 @@ namespace WishListApp
 
                 IEnumerable<WishListRepository.WishListModel> SkuSearch =
                     from w in WishList
-                    where w.Sku == uxSearchBox.Text
+                    where w.Sku == UxSearchBox.Text
                     select w;
 
-                uxWishListList.ItemsSource = SkuSearch
+                UxWishListList.ItemsSource = SkuSearch
                     .Select(t => WishListModel.ToModel(t))
                     .ToList();
             }
@@ -146,6 +123,28 @@ namespace WishListApp
             {
                 LoadWishLists();
             }
+        }
+
+        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewColumnHeader column = sender as GridViewColumnHeader;
+            string sortBy = column.Tag.ToString();
+            if (listViewSortCol != null)
+            {
+                AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
+                UxWishListList.Items.SortDescriptions.Clear();
+            }
+
+            ListSortDirection newDir = ListSortDirection.Ascending;
+            if (listViewSortCol == column && listViewSortAdorner.Direction == newDir)
+            {
+                newDir = ListSortDirection.Descending;
+            }
+
+            listViewSortCol = column;
+            listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
+            AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
+            UxWishListList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
 
     }
