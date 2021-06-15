@@ -26,6 +26,46 @@ namespace WishListApp.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public WishListRepository.WishListModel ToRepositoryModel()
+        {
+            WishListRepository.WishListModel repositoryModel = new()
+            {
+                Brand = Brand,
+                CreatedDate = CreatedDate,
+                Description = Description,
+                Id = Id,
+                InStock = InStock,
+                Notes = Notes,
+                Price = Price,
+                Qty = Qty,
+                Sku = Sku
+            };
+            return repositoryModel;
+        }
+
+        public static WishListModel ToModel(WishListRepository.WishListModel respositoryModel)
+        {
+            WishListModel wishListModel = new()
+            {
+                Brand = respositoryModel.Brand,
+                CreatedDate = respositoryModel.CreatedDate,
+                Description = respositoryModel.Description,
+                Id = respositoryModel.Id,
+                InStock = respositoryModel.InStock,
+                Notes = respositoryModel.Notes,
+                Price = respositoryModel.Price,
+                Qty = respositoryModel.Qty,
+                Sku = respositoryModel.Sku
+            };
+            return wishListModel;
+        }
+
+        // so both objects do not point to the same data
+        internal WishListModel Clone()
+        {
+            return (WishListModel)MemberwiseClone();
+        }
+
         // IDataErrorInfo interface
         public string Error => "Never Used";
 
@@ -122,46 +162,5 @@ namespace WishListApp.Models
             }
         }
 
-        public WishListRepository.WishListModel ToRepositoryModel()
-        {
-            WishListRepository.WishListModel repositoryModel = new()
-            {
-                Brand = Brand,
-                CreatedDate = CreatedDate,
-                Description = Description,
-                Id = Id,
-                InStock = InStock,
-                Notes = Notes,
-                Price = Price,
-                Qty = Qty,
-                Sku = Sku
-            };
-            return repositoryModel;
-        }
-
-        public static WishListModel ToModel(WishListRepository.WishListModel respositoryModel)
-        {
-            WishListModel wishListModel = new()
-            {
-                Brand = respositoryModel.Brand,
-                CreatedDate = respositoryModel.CreatedDate,
-                Description = respositoryModel.Description,
-                Id = respositoryModel.Id,
-                InStock = respositoryModel.InStock,
-                Notes = respositoryModel.Notes,
-                Price = respositoryModel.Price,
-                Qty = respositoryModel.Qty,
-                Sku = respositoryModel.Sku
-            };
-            return wishListModel;
-        }
-
-        // Exercise 2 - Fix update so background behaves correctly
-        // adding Clone() method
-        // so both objects do not point to the same data
-        internal WishListModel Clone()
-        {
-            return (WishListModel)MemberwiseClone();
-        }
     }
 }
