@@ -14,24 +14,13 @@ namespace WishListApp
         public WishListWindow()
         {
             InitializeComponent();
-            ShowInTaskbar = true;
+            ShowInTaskbar = false;
         }
 
         public WishListModel WishList { get; set; }
 
         private void UxSubmit_Click(object sender, RoutedEventArgs e)
         {
-            WishList = new WishListModel();
-
-            WishList.Brand = UxBrand.Text;
-            WishList.Description = UxDescription.Text;
-            WishList.Price = decimal.Parse(UxPrice.Text);
-            WishList.Sku = UxSku.Text;
-            WishList.InStock = bool.Parse(UxInstock.Text);
-            WishList.Qty = int.Parse(UxQty.Text);
-            WishList.Notes = UxNotes.Text;
-            WishList.CreatedDate = DateTime.Now;
-
             // This is the return value of ShowDialog( ) below
             DialogResult = true;
             Close();
@@ -51,8 +40,10 @@ namespace WishListApp
             }
             else
             {
-                WishList = new WishListModel();
-                WishList.CreatedDate = DateTime.Now;
+                WishList = new WishListModel
+                {
+                    CreatedDate = DateTime.Now
+                };
             }
             UxGrid.DataContext = WishList;
         }

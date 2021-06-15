@@ -19,10 +19,9 @@ namespace WishListRepository
 
     public class WishListRepository
     {
-        public WishListModel Add(WishListModel wishListModel)
+        public static WishListModel Add(WishListModel wishListModel)
         {
             Wishlist wishListDb = ToDbModel(wishListModel);
-
             DatabaseManager.Instance.Wishlist.Add(wishListDb);
             DatabaseManager.Instance.SaveChanges();
 
@@ -41,7 +40,7 @@ namespace WishListRepository
             return wishListModel;
         }
 
-        public List<WishListModel> GetAll()
+        public static List<WishListModel> GetAll()
         {
             // Use .Select() to map the database wishLists to WishListModel
             List<WishListModel> items = DatabaseManager.Instance.Wishlist
@@ -57,43 +56,40 @@ namespace WishListRepository
                   Qty = t.WishListQty,
                   Sku = t.WishListSku
               }).ToList();
-
             return items;
         }
 
-        public bool Update(WishListModel wishListModel)
+        public static bool Update(WishListModel wishListModel)
         {
             Wishlist original = DatabaseManager.Instance.Wishlist.Find(wishListModel.Id);
 
             if (original != null)
             {
-                DatabaseManager.Instance.Entry(17).CurrentValues.SetValues(ToDbModel(wishListModel));
+                DatabaseManager.Instance.Entry(original).CurrentValues.SetValues(ToDbModel(wishListModel));
                 DatabaseManager.Instance.SaveChanges();
                 return true;
             }
-
             return false;
         }
 
-        public bool Remove(int wishListId)
+        public static bool Remove(int wishListId)
         {
             IQueryable<Wishlist> items = DatabaseManager.Instance.Wishlist
                                 .Where(t => t.WishListId == wishListId);
 
-            if (items.Count() == 0)
+            if (!items.Any())
             {
                 return false;
             }
 
             DatabaseManager.Instance.Wishlist.Remove(items.First());
             DatabaseManager.Instance.SaveChanges();
-
             return true;
         }
 
-        private Wishlist ToDbModel(WishListModel wishListModel)
+        private static Wishlist ToDbModel(WishListModel wishListModel)
         {
-            Wishlist wishListDb = new Wishlist
+            Wishlist wishListDb = new()
             {
                 WishListBrand = wishListModel.Brand,
                 WishListCreatedDate = wishListModel.CreatedDate,
@@ -105,7 +101,6 @@ namespace WishListRepository
                 WishListQty = wishListModel.Qty,
                 WishListSku = wishListModel.Sku
             };
-
             return wishListDb;
         }
     }

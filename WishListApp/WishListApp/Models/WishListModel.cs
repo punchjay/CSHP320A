@@ -141,7 +141,7 @@ namespace WishListApp.Models
 
         public static WishListModel ToModel(WishListRepository.WishListModel respositoryModel)
         {
-            WishListModel wishListModel = new WishListModel
+            WishListModel wishListModel = new()
             {
                 Brand = respositoryModel.Brand,
                 CreatedDate = respositoryModel.CreatedDate,

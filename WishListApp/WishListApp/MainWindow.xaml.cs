@@ -28,7 +28,7 @@ namespace WishListApp
 
         private void LoadWishLists()
         {
-            WishList = App.WishListRepository.GetAll();
+            WishList = WishListRepository.WishListRepository.GetAll();
 
             UxWishListList.ItemsSource = WishList
                 .Select(t => WishListModel.ToModel(t))
@@ -37,16 +37,16 @@ namespace WishListApp
             UxStatus.Text = $"You currently have {WishList.Count} items in your Wish List";
         }
 
-        // add this method for doing updates
         private void UxFileChange_Click(object sender, RoutedEventArgs e)
         {
-            WishListWindow window = new WishListWindow();
-            // Exercise 2 for update - fix this to call on Clone()
-            window.WishList = selectedWishList.Clone();
+            WishListWindow window = new()
+            {
+                WishList = selectedWishList.Clone()
+            };
 
             if (window.ShowDialog() == true)
             {
-                App.WishListRepository.Update(window.WishList.ToRepositoryModel());
+                WishListRepository.WishListRepository.Update(window.WishList.ToRepositoryModel());
                 LoadWishLists();
             }
         }
@@ -59,14 +59,14 @@ namespace WishListApp
 
         private void UxFileNew_Click(object sender, RoutedEventArgs e)
         {
-            WishListWindow window = new WishListWindow();
+            WishListWindow window = new();
 
             if (window.ShowDialog() == true)
             {
                 WishListModel uiWishListModel = window.WishList;
                 WishListRepository.WishListModel repositoryWishListModel = uiWishListModel.ToRepositoryModel();
 
-                App.WishListRepository.Add(repositoryWishListModel);
+                WishListRepository.WishListRepository.Add(repositoryWishListModel);
                 LoadWishLists();
             }
         }
@@ -80,7 +80,7 @@ namespace WishListApp
 
         private void UxFileDelete_Click(object sender, RoutedEventArgs e)
         {
-            App.WishListRepository.Remove(selectedWishList.Id);
+            WishListRepository.WishListRepository.Remove(selectedWishList.Id);
             selectedWishList = null;
             LoadWishLists();
         }
@@ -108,7 +108,7 @@ namespace WishListApp
 
             if (!isRegexMatch && searchBox.Length == 4)
             {
-                WishList = App.WishListRepository.GetAll();
+                WishList = WishListRepository.WishListRepository.GetAll();
 
                 IEnumerable<WishListRepository.WishListModel> SkuSearch =
                     from w in WishList

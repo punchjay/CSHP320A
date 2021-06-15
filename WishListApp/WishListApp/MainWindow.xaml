@@ -31,12 +31,6 @@
 
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Width="25">
-                        <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Id" Tag="Id" Click="GridViewColumnHeader_Click" />
-                        </GridViewColumn.Header>
-                    </GridViewColumn>
-                    
                     <GridViewColumn DisplayMemberBinding="{Binding Brand}" Width="100">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Brand" Tag="Brand" Click="GridViewColumnHeader_Click" />
