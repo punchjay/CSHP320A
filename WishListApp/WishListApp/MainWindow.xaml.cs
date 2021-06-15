@@ -71,7 +71,7 @@ namespace WishListApp
             }
         }
 
-        // Important Method: detect if selection has been made
+        // detect if selection has been made
         private void UxWishListList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedWishList = (WishListModel)UxWishListList.SelectedValue;
