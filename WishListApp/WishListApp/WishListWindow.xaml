@@ -33,7 +33,7 @@
         <TextBlock x:Name="UxDescriptionError" Grid.Column="1" Grid.Row="1" Text="{Binding DescriptionError, UpdateSourceTrigger=PropertyChanged}" Margin="0,20,0,0" Padding="0,0,0,5" Foreground="#FFDE1919"></TextBlock>
         
         <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,15,0">Price:</TextBlock>
-        <TextBox x:Name="UxPrice" Grid.Column="1" Grid.Row="2" Text="{Binding Price}" Margin="0,0,0,30"></TextBox>
+        <TextBox x:Name="UxPrice" Grid.Column="1" Grid.Row="2" Text="{Binding Price, StringFormat='c'}" Margin="0,0,0,30"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,15,0">Sku:</TextBlock>
         <TextBox x:Name="UxSku" Grid.Column="1" Grid.Row="3" Text="{Binding Sku, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="0,0,0,35" Height="18" MaxLength="4"  PreviewTextInput="NumberValidationTextBox">

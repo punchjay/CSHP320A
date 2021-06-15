@@ -43,7 +43,7 @@
                         </GridViewColumn.Header>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Price}" Width="70">
+                    <GridViewColumn DisplayMemberBinding="{Binding Price, StringFormat='c'}" Width="70">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Price" Tag="Price" Click="GridViewColumnHeader_Click" />
                         </GridViewColumn.Header>
