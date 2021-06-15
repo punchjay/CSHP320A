@@ -19,17 +19,17 @@ namespace WishListApp
 
         public WishListModel WishList { get; set; }
 
-        private void uxSubmit_Click(object sender, RoutedEventArgs e)
+        private void UxSubmit_Click(object sender, RoutedEventArgs e)
         {
             WishList = new WishListModel();
 
-            WishList.Brand = uxBrand.Text;
-            WishList.Description = uxDescription.Text;
-            WishList.Price = decimal.Parse(uxPrice.Text);
-            WishList.Sku = uxSku.Text;
-            WishList.InStock = bool.Parse(uxInstock.Text);
-            WishList.Qty = int.Parse(uxQty.Text);
-            WishList.Notes = uxNotes.Text;
+            WishList.Brand = UxBrand.Text;
+            WishList.Description = UxDescription.Text;
+            WishList.Price = decimal.Parse(UxPrice.Text);
+            WishList.Sku = UxSku.Text;
+            WishList.InStock = bool.Parse(UxInstock.Text);
+            WishList.Qty = int.Parse(UxQty.Text);
+            WishList.Notes = UxNotes.Text;
             WishList.CreatedDate = DateTime.Now;
 
             // This is the return value of ShowDialog( ) below
@@ -37,7 +37,7 @@ namespace WishListApp
             Close();
         }
 
-        private void uxCancel_Click(object sender, RoutedEventArgs e)
+        private void UxCancel_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             Close();
@@ -47,19 +47,19 @@ namespace WishListApp
         {
             if (WishList != null)
             {
-                uxSubmit.Content = "Update";
+                UxSubmit.Content = "Update";
             }
             else
             {
                 WishList = new WishListModel();
                 WishList.CreatedDate = DateTime.Now;
             }
-            uxGrid.DataContext = WishList;
+            UxGrid.DataContext = WishList;
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
+            Regex regex = new("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
     }
