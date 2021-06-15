@@ -118,6 +118,9 @@ namespace WishListApp.Models
                             }
                             return SkuError;
                         }
+
+                    default:
+                        break;
                 }
                 return null;
             }
