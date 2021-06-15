@@ -14,9 +14,9 @@ namespace WishListApp.Models
         public string Notes { get; set; }
         public System.DateTime CreatedDate { get; set; }
 
-        private string brandError { get; set; }
-        private string descriptionError { get; set; }
-        private string skuError { get; set; }
+        private string ErrorBrand { get; set; }
+        private string ErrorDescription { get; set; }
+        private string ErrorSku { get; set; }
 
         // INotifyPropertyChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
@@ -85,47 +85,38 @@ namespace WishListApp.Models
 
         public string BrandError
         {
-            get
-            {
-                return brandError;
-            }
+            get => ErrorBrand;
             set
             {
-                if (brandError != value)
+                if (ErrorBrand != value)
                 {
-                    brandError = value;
-                    OnPropertyChanged("BrandError");
+                    ErrorBrand = value;
+                    OnPropertyChanged(nameof(BrandError));
                 }
             }
         }
 
         public string DescriptionError
         {
-            get
-            {
-                return descriptionError;
-            }
+            get => ErrorDescription;
             set
             {
-                if (descriptionError != value)
+                if (ErrorDescription != value)
                 {
-                    descriptionError = value;
-                    OnPropertyChanged("DescriptionError");
+                    ErrorDescription = value;
+                    OnPropertyChanged(nameof(DescriptionError));
                 }
             }
         }
 
         public string SkuError
         {
-            get
-            {
-                return skuError;
-            }
+            get => ErrorSku;
             set
             {
-                if (skuError != value)
+                if (ErrorSku != value)
                 {
-                    skuError = value;
+                    ErrorSku = value;
                     OnPropertyChanged(nameof(SkuError));
                 }
             }
