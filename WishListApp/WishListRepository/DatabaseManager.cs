@@ -2,23 +2,15 @@
 
 namespace WishListRepository
 {
-    class DatabaseManager
+    internal class DatabaseManager
     {
-        private static readonly WishListContext entities;
-
         // Initialize and open the database connection
         static DatabaseManager()
         {
-            entities = new WishListContext();
+            Instance = new WishListContext();
         }
 
         // Provide an accessor to the database
-        public static WishListContext Instance
-        {
-            get
-            {
-                return entities;
-            }
-        }
+        public static WishListContext Instance { get; private set; }
     }
 }
